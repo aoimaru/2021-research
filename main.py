@@ -1,5 +1,6 @@
 from lib.dockerfiles import Dockerfile
 from lib.primitives import Primitive
+ 
 
 TEST_PATH = "./python/3.6/alpine3.13/Dockerfile"
 
