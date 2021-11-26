@@ -2,4 +2,6 @@ import dockerfile
 import re
 
 class Dockerfile(object):
-    pass
+    def __init__(self, file_path):
+        self._contents = dockerfile.parse_file(file_path)
+
