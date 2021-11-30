@@ -64,11 +64,17 @@ class Structure(object):
                     tag = com[0]
                 # print("stack:", stack)
                 copied = copy.copy(stack)
-                rs = " ".join(copied)
+                coped = []
+                for comps in copied:
+                    comps = comps.split()
+                    comped = [comp for comp in comps if comp != "AND"]
+                    comped = " ".join(comped)
+                    coped.append(comped)
+                rs = " ".join(coped)
                 hash_object = hashlib.sha256(rs.encode()).hexdigest()
                 if not hash_object in res:
                     res.append(hash_object)
-                hash_dict[hash_object] = copied
+                hash_dict[hash_object] = coped
             response.append(res)
         return response, hash_dict
     
