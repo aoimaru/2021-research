@@ -1,6 +1,6 @@
-from lib.dockerfiles import Dockerfile
-from lib.primitives import Primitive
-from lib.structures import Structure
+from libs.dockerfiles import Dockerfile
+from libs.primitives import Primitive
+from libs.structures import Structure
  
 
 TEST_PATH = "./python/3.7/alpine3.13/Dockerfile"
