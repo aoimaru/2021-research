@@ -79,6 +79,8 @@ class Structure(object):
         return response, hash_dict
     
 
+
+
     @staticmethod
     def toJson(lines):
         res = []
