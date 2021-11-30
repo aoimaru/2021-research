@@ -112,10 +112,12 @@ class Model(object):
                 while command:
                     word = command.pop(0)
                     if word == "AND":
+                        comp.insert(-1, "AND")
                         Req.append(comp)
                         comp = []
                     else:
                         comp.append(word)
+                Req.pop(-1)
                 self._runs.append(Req)
 
         self._shells = []

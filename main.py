@@ -13,9 +13,22 @@ def test():
     file_paths = [comp for comp in glob.glob(PYTHON_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
     for file_path in file_paths:
         model = Model(file_path)
-        commands = model.commands
-        for command in commands:
-            print(command)
+        runs = model.runs
+        for run in runs:
+            cnt = []
+            for shells in run:
+                while shells:
+                    word = shells.pop(0)
+                    if not word:
+                        continue
+                    if word == "NL":
+                        continue
+                    if word == "SPACE":
+                        continue
+                    cnt.append(word)
+            print()
+            print(cnt)
+
 
 
 
