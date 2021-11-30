@@ -43,6 +43,7 @@ class Structure(object):
         hash_dict = {}
         # スタックでの管理
         for layer in layers:
+            # print()
             stack = []
             tag = 0
             if not layer:
@@ -53,27 +54,21 @@ class Structure(object):
             for com in layer:
                 if com[0] > tag:
                     stack.append(com[1])
-                    copied = copy.copy(stack)
-                    rs = " ".join(copied)
-                    hash_object = hashlib.sha256(rs.encode()).hexdigest()
-                    if not hash_object in res:
-                        res.append(hash_object)
-                    hash_dict[hash_object] = copied
                     tag = com[0]
                 else:
-                    copied = copy.copy(stack)
-                    rs = " ".join(copied)
-                    hash_object = hashlib.sha256(rs.encode()).hexdigest()
-                    if not hash_object in res:
-                        res.append(hash_object)
-                    hash_dict[hash_object] = copied
                     while True:
                         if len(stack) <= com[0]:
                             break
                         stack.pop(-1)
                     stack.append(com[1])
                     tag = com[0]
-            
+                # print("stack:", stack)
+                copied = copy.copy(stack)
+                rs = " ".join(copied)
+                hash_object = hashlib.sha256(rs.encode()).hexdigest()
+                if not hash_object in res:
+                    res.append(hash_object)
+                hash_dict[hash_object] = copied
             response.append(res)
         return response, hash_dict
     

@@ -4,6 +4,7 @@ from libs.structures import Structure
  
 
 TEST_PATH = "./python/3.7/alpine3.13/Dockerfile"
+TEST_PATH = "./python/3.7/bullseye/slim/Dockerfile"
 
 def test():
     # df = Dockerfile(TEST_PATH)
