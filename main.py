@@ -18,11 +18,12 @@ def test():
         responses, hash_dict = Structure.toStack(primitive.data)
         for response in responses:
             print()
+
             for res in response:
                 tokens = hash_dict[res]
                 tokens = Structure.And(tokens)
                 tokens = Structure.toToken(tokens)
-                print(tokens)
+
         
 
 
