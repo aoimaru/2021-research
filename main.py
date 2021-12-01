@@ -1,7 +1,7 @@
 import glob
 import os
 
-from libs.dockerfiles import Model
+# from libs.dockerfiles import Model
 from libs.primitives import Primitive
 from libs.structures import Structure
  
