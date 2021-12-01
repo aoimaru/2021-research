@@ -19,10 +19,12 @@ def test():
         for response in responses:
             print()
             for res in response:
-                print(hash_dict[res])
-                tokens = Structure.toToken(hash_dict[res])
+                tokens = hash_dict[res]
+                tokens = Structure.And(tokens)
+                tokens = Structure.toToken(tokens)
                 print(tokens)
         
+
 
 
 
@@ -32,6 +34,7 @@ def test_2():
 
 
 def main():
+
     test()
     test_2()
 

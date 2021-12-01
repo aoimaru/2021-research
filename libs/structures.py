@@ -179,6 +179,19 @@ class Structure(object):
                 res.append(token)
 
         return res
+    
+    @staticmethod
+    def And(tokens):
+        if not tokens:
+            return tokens
+        res = [tokens.pop(0)]
+        while tokens:
+            token = tokens.pop(0)
+            res.append(token)
+            res.append("AND")
+        res.pop(-1)
+        return res
+
 
 
 
