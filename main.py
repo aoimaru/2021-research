@@ -18,11 +18,13 @@ def test():
             print(primitive)
 
 
-
+def test_2():
+    pass
 
 
 def main():
     test()
+    test_2()
 
 if __name__ == "__main__":
     main()
