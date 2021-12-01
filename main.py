@@ -7,6 +7,7 @@ from libs.structures import Structure
  
 
 PYTHON_PROJECT = "./python/**"
+OTHERS_PROJECT = "./Others/**"
 
 def test():
     # df = Dockerfile(TEST_PATH)
@@ -18,9 +19,11 @@ def test():
         for response in responses:
             print()
             for res in response:
+                print(hash_dict[res])
                 tokens = Structure.toToken(hash_dict[res])
                 print(tokens)
         
+
 
 
 
