@@ -151,6 +151,19 @@ class Structure(object):
 
             for rs in res:
                 print(hash_dict[rs])
+        
+    @staticmethod
+    def toToken(contents):
+        tokens = []
+        for content in contents:
+            content = content.split()
+            while content:
+                word = content.pop(0)
+                if word:
+                    tokens.append(word)
+        return tokens
+
+        
             
                 
 
