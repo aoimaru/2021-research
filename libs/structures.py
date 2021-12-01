@@ -162,6 +162,26 @@ class Structure(object):
                 if word:
                     tokens.append(word)
         return tokens
+    
+    @staticmethod
+    def options(tokens):
+        res = []
+        for token in tokens:
+            if len(token) <= 1:
+                res.append(token)
+            elif token[0] == "-" and token[1] != "-":
+                token = list(token)
+                root = token.pop(0)
+                while token:
+                    tk = root + root + token.pop(0)
+                    res.append(tk)
+            else:
+                res.append(token)
+
+        return res
+
+
+
 
         
             

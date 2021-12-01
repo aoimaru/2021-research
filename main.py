@@ -20,12 +20,15 @@ def test():
             for res in response:
                 tokens = Structure.toToken(hash_dict[res])
                 print(tokens)
+                # tokens = Structure.options(tokens)
+                # print(tokens)
         
 
 
 
 def test_2():
     pass
+
 
 
 def main():
