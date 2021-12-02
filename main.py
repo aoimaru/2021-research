@@ -66,22 +66,21 @@ def test_3():
         primitive = Primitive(file_path)
         responses, hash_dict = Structure.toStack(primitive.data)
         for response in responses:
-            print()
             for res in response:
                 tokens = hash_dict[res]
                 tokens = Structure.toToken(tokens)
                 tokens = Structure.Equal(tokens)
-                print(tokens)
+                # print(tokens)
                 data.append(tokens)
     
     model, hash_dict, hash_key = D2V.execute(data)
-    # for key, value in hash_dict.items():
-    #     print(key, value)
+    for key, value in hash_dict.items():
+        print(key)
     
     
-    print(model.docvecs['9ada2cb08babc7ac0461be8cf07c4d2268b0213080c0d0c8805386e2545565c2'])
+    print(model.docvecs['7ece24f3b6bffa3df20ce8ada18c4ad430db9932045c9ed199cd84be177f0acf'])
 
-    sim_items = model.docvecs.most_similar('9ada2cb08babc7ac0461be8cf07c4d2268b0213080c0d0c8805386e2545565c2')
+    sim_items = model.docvecs.most_similar('7ece24f3b6bffa3df20ce8ada18c4ad430db9932045c9ed199cd84be177f0acf')
 
     for sim_item in sim_items:
         print(sim_item)
