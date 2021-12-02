@@ -24,6 +24,7 @@ class D2V():
 
             training_docs.append(training_doc)
         model = Doc2Vec(documents=training_docs, min_count=1, dm=0)
+        return model, hash_dict, hash_key
 
 
         

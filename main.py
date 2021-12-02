@@ -4,7 +4,7 @@ import os
 from libs.dockerfiles import Model
 from libs.primitives import Primitive
 from libs.structures import Structure
- 
+from libs.dock2vecs import D2V
 
 PYTHON_PROJECT = "./python/**"
 OTHERS_PROJECT = "./Others/**"
@@ -31,6 +31,9 @@ def test():
                 
                 tokens = Structure.Equal(tokens)
                 print(tokens)
+    model, hash_dict, hash_key = D2V.execute(data)
+    for key, value in hash_dict:
+        print(key, value)
 
 
         
@@ -74,6 +77,8 @@ def test_3():
                 tokens = Structure.Equal(tokens)
                 print(tokens)
                 data.append(tokens)
+    
+
 
 
 def main():
