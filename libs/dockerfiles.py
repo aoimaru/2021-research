@@ -1,6 +1,7 @@
 
 import dockerfile
 import re
+import hashlib
 
 URL_RE_PATTERN = "https?://[^/]+/"
 
@@ -100,11 +101,19 @@ class Model(object):
             else:
                 self._layers.append([content.cmd]+list(content.value[0]))
 
-        self._primitives = []
+        self._primitives_key = []
+        self._primitives_dict = {}
         for layer in self._layers:
             if not layer[0] == "RUN":
-                self._primitives.append(layer)
+                rs = " ".join(layer)
+                hash_object = hashlib.sha256(rs.encode()).hexdigest()
+                self._primitives_key.append(hash_object)
+                if not hash_object in self._primitives_dict:
+                    self._primitives_dict[hash_object] = []
+                self._primitives_dict[hash_object].append(layer)
+                # self._primitives.append(layer)
             else:
+                rs = " ".join(layer)
                 layer.pop(0)
                 comps = []
                 primitive = []
@@ -115,7 +124,13 @@ class Model(object):
                         comps = []
                     else:
                         comps.append(comp)
-                self._primitives.append(primitive)
+                hash_object = hashlib.sha256(rs.encode()).hexdigest()
+                if not hash_object in self._primitives_dict:
+                    self._primitives_dict[hash_object] = []
+                for comp in primitive:
+                    self._primitives_dict[hash_object].append(comp)
+                self._primitives_key.append(hash_object)
+                # self._primitives.append(primitive)
 
 
     @property
@@ -128,6 +143,10 @@ class Model(object):
         return self._layers
 
     @property
-    def primitives(self):
-        return self._primitives
+    def primitives_key(self):
+        return self._primitives_key
+    
+    @property
+    def primitives_dict(self):
+        return self._primitives_dict
 

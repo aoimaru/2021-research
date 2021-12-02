@@ -49,9 +49,15 @@ def test_2():
     for file_path in file_paths[:1]:
         print()
         model = Model(file_path)
-        primitives = model.primitives
-        for primitive in primitives:
-            print(primitive)
+        primitives_key = model.primitives_key
+        primitives_dict = model._primitives_dict
+
+        for p_key in primitives_key:
+            p_items = primitives_dict[p_key]
+            print()
+            for p_item in p_items:
+                print(p_item)
+        
 
 
 
