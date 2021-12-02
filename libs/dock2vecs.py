@@ -16,7 +16,7 @@ class D2V():
             hash_key.append(hash_object)
             if not hash_object in hash_dict:
                 hash_dict[hash_object] = []
-            hash_dict[hash_key].append(token)
+            hash_dict[hash_object].append(token)
             training_doc = TaggedDocument(
                 words=token, 
                 tags=[hash_object]
