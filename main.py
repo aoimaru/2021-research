@@ -12,7 +12,7 @@ GOLANG_PROJECT = "./golang/**"
 
 def test():
     # df = Dockerfile(TEST_PATH)
-    file_paths = [comp for comp in glob.glob(PYTHON_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
+    file_paths = [comp for comp in glob.glob(GOLANG_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
     for file_path in file_paths[:1]:
         print()
         primitive = Primitive(file_path)
@@ -28,6 +28,7 @@ def test():
                 # tokens = Structure.And(tokens)
                 tokens = Structure.toToken(tokens)
                 
+                tokens = Structure.Equal(tokens)
                 print(tokens)
 
 

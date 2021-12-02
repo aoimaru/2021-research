@@ -195,6 +195,38 @@ class Structure(object):
             res.append("AND")
         res.pop(-1)
         return res
+    
+    @staticmethod
+    def Equal(tokens):
+        def rm_crn(word):
+            if word.startswith('"'):
+                word = word[1:]
+            if word.endswith('"'):
+                word = word[:-1]
+            if word.startswith("'"):
+                word = word[1:]
+            if word.endswith("'"):
+                word = word[:-1]
+            return word
+
+        if not tokens:
+            return tokens
+        res = [tokens.pop(0)]
+        while tokens:
+            token = tokens.pop(0)
+            if not "=" in token:
+                res.append(rm_crn(token))
+            else:
+                token = token.split("=")
+                step = []
+                for word in token:
+                    word = rm_crn(word)
+                    step.append(word)
+                    step.append("=")
+                step.pop(-1)
+                res.extend(step)
+        return res
+
 
 
 
