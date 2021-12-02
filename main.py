@@ -75,9 +75,11 @@ def test_3():
                 data.append(tokens)
     
     model, hash_dict, hash_key = D2V.execute(data)
-    for key, value in hash_dict:
-        print(key, value)
+    # for key, value in hash_dict.items():
+    #     print(key, value)
 
+
+    
 
 def main():
     test_3()
