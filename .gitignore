@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# binnacle icseデータはgitで管理しない.
+/binnacle-icse2020

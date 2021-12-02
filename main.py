@@ -22,7 +22,7 @@ def test():
 
 
             for res in response:
-                print()
+                # print()
                 tokens = hash_dict[res]
                 # tokens = Structure.And(tokens)
                 tokens = Structure.toToken(tokens)
