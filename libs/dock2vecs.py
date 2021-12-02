@@ -2,7 +2,7 @@ from gensim.models.doc2vec import Doc2Vec
 from gensim.models.doc2vec import TaggedDocument
 
 import hashlib
-import datetimes
+import datetime
 
 class D2V():
     @staticmethod
@@ -14,8 +14,8 @@ class D2V():
             rs = " ".join(token)
             hash_object = hashlib.sha256(rs.encode()).hexdigest()
             hash_key.append(hash_object)
-            if not hash_key in hash_dict:
-                hash_dict[hash_key] = []
+            if not hash_object in hash_dict:
+                hash_dict[hash_object] = []
             hash_dict[hash_key].append(token)
             training_doc = TaggedDocument(
                 words=token, 

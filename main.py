@@ -21,8 +21,6 @@ def test():
         responses, hash_dict = Structure.toStack(primitive.data)
         for response in responses:
             print()
-
-
             for res in response:
                 # print()
                 tokens = hash_dict[res]
@@ -31,9 +29,7 @@ def test():
                 
                 tokens = Structure.Equal(tokens)
                 print(tokens)
-    model, hash_dict, hash_key = D2V.execute(data)
-    for key, value in hash_dict:
-        print(key, value)
+    
 
 
         
@@ -78,7 +74,9 @@ def test_3():
                 print(tokens)
                 data.append(tokens)
     
-
+    model, hash_dict, hash_key = D2V.execute(data)
+    for key, value in hash_dict:
+        print(key, value)
 
 
 def main():
