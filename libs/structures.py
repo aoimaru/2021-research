@@ -67,7 +67,7 @@ class Structure(object):
 
                 comped = []
                 for comps in copied:
-                    comps = comps.split("AND")
+                    comps = comps.split()
                     for comp in comps:
                         # comped.append("AND")
                         if comp:
