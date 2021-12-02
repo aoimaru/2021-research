@@ -8,6 +8,7 @@ from libs.structures import Structure
 
 PYTHON_PROJECT = "./python/**"
 OTHERS_PROJECT = "./Others/**"
+GOLANG_PROJECT = "./golang/**"
 
 def test():
     # df = Dockerfile(TEST_PATH)
