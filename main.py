@@ -60,14 +60,25 @@ def test_2():
                 tokens = Structure.Equal(tokens)
                 print(tokens)
 
-
 def test_3():
-
+    file_paths = [comp for comp in glob.glob(GOLANG_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
+    data = []
+    for file_path in file_paths:
+        primitive = Primitive(file_path)
+        responses, hash_dict = Structure.toStack(primitive.data)
+        for response in responses:
+            print()
+            for res in response:
+                tokens = hash_dict[res]
+                tokens = Structure.toToken(tokens)
+                tokens = Structure.Equal(tokens)
+                print(tokens)
+                data.append(tokens)
 
 
 def main():
-
-    test()
+    test_3()
+    # test()
     # test_2()
 
 if __name__ == "__main__":
