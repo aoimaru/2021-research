@@ -60,7 +60,7 @@ def test_2():
                 print(tokens)
 
 def test_3():
-    file_paths = [comp for comp in glob.glob(GOLANG_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
+    file_paths = [comp for comp in glob.glob(PYTHON_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
     data = []
     for file_path in file_paths:
         primitive = Primitive(file_path)
@@ -77,9 +77,18 @@ def test_3():
     model, hash_dict, hash_key = D2V.execute(data)
     # for key, value in hash_dict.items():
     #     print(key, value)
-
-
     
+    
+    print(model.docvecs['9ada2cb08babc7ac0461be8cf07c4d2268b0213080c0d0c8805386e2545565c2'])
+
+    sim_items = model.docvecs.most_similar('9ada2cb08babc7ac0461be8cf07c4d2268b0213080c0d0c8805386e2545565c2')
+
+    for sim_item in sim_items:
+        print(sim_item)
+        print(hash_dict[sim_item[0]][0], sim_item[1])
+
+
+
 
 def main():
     test_3()

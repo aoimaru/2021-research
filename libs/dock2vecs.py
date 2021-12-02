@@ -11,7 +11,7 @@ class D2V():
         hash_key = []
         training_docs = []
         for token in tokens:
-            print("token:", token)
+            # print("token:", token)
             rs = " ".join(token)
             hash_object = hashlib.sha256(rs.encode()).hexdigest()
             hash_key.append(hash_object)
