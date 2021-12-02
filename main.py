@@ -5,11 +5,14 @@ from libs.dockerfiles import Model
 from libs.primitives import Primitive
 from libs.structures import Structure
 from libs.dock2vecs import D2V
+from libs.consts import Const, INSTRUCTIONS
 
 PYTHON_PROJECT = "./python/**"
 OTHERS_PROJECT = "./Others/**"
 GOLANG_PROJECT = "./golang/**"
 BINNACLE_PROJECT = "./binnacle-icse2020/**"
+
+CNT = Const.book
 
 def test():
     # df = Dockerfile(TEST_PATH)
