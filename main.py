@@ -9,6 +9,7 @@ from libs.structures import Structure
 PYTHON_PROJECT = "./python/**"
 OTHERS_PROJECT = "./Others/**"
 GOLANG_PROJECT = "./golang/**"
+BINNACLE_PROJECT = "./binnacle-icse2020/**"
 
 def test():
     # df = Dockerfile(TEST_PATH)
