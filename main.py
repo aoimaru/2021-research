@@ -56,15 +56,19 @@ def test_2():
             p_items = primitives_dict[p_key]
             print()
             for p_item in p_items:
-                print(p_item)
-        
+                tokens = Structure.toToken(p_item)
+                tokens = Structure.Equal(tokens)
+                print(tokens)
+
+
+def test_3():
 
 
 
 def main():
 
-    # test()
-    test_2()
+    test()
+    # test_2()
 
 if __name__ == "__main__":
     main()
