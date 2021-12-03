@@ -7,6 +7,8 @@ class Structure(object):
         response = []
         # res = []
         def floor(data):
+            if not data:
+                return 0, data
             indent = 0
             while True:
                 word = data.pop(0)
