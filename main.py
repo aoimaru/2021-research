@@ -123,13 +123,16 @@ def test_3():
         print(hash_dict[sim_item[0]][0], sim_item[1])
 
 
+def test_5():
+    pass
 
 
 def main():
     # test_3()
     # test()
     # test_2()
-    test_4()
+    # test_4()
+    test_5()
 
 if __name__ == "__main__":
     main()
