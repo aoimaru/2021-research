@@ -6,6 +6,8 @@ from libs.primitives import Primitive
 from libs.structures import Structure
 from libs.dock2vecs import D2V
 from libs.consts import Const, INSTRUCTIONS
+from libs.graphs import Graph
+from libs.word2vecs import W2V
 
 PYTHON_PROJECT = "./python/**"
 OTHERS_PROJECT = "./Others/**"
@@ -34,8 +36,39 @@ def test():
                 print(tokens)
     
 
-
+def test_4():
+    # df = Dockerfile(TEST_PATH)
+    file_paths = [comp for comp in glob.glob(PYTHON_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
+    trainings = []
+    for file_path in file_paths:
+        # 
+        print()
+        primitive = Primitive(file_path)
+        # print(primitive.data)
+        responses, hash_dict = Structure.toStack(primitive.data)
+        for response in responses:
+            # 
+            # print()
+            contents = []
+            for res in response:
+                tokens = hash_dict[res]
+                tokens = Structure.toToken(tokens)
+                tokens = Structure.Equal(tokens)
+                # print("tokens:", tokens)
+                contents.append(tokens)
         
+            context = Graph.toContent(contents)
+            for con in context:
+                print("con:", con)
+                trainings.append(con)
+
+    W2V.execute(trainings)
+
+
+
+
+
+
 
 
 
@@ -94,8 +127,9 @@ def test_3():
 
 def main():
     # test_3()
-    test()
+    # test()
     # test_2()
+    test_4()
 
 if __name__ == "__main__":
     main()
