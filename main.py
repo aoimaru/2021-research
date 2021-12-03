@@ -39,7 +39,7 @@ def test():
 
 def test_4():
     # df = Dockerfile(TEST_PATH)
-    file_paths = [comp for comp in glob.glob(PYTHON_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
+    file_paths = [comp for comp in glob.glob(BINNACLE_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
     trainings = []
     for file_path in file_paths:
         # 
@@ -130,7 +130,7 @@ def test_5():
     for similar_word in similar_words:
         print(similar_word)
 
-        
+
 
 
 
