@@ -126,18 +126,25 @@ def test_3():
 
 def test_5():
     model = word2vec.Word2Vec.load("test.model")
-    similar_words = model.wv.most_similar(positive=["rm"], topn=9)
+    similar_words = model.wv.most_similar(positive=["ln", "-s"], topn=9)
     for similar_word in similar_words:
         print(similar_word)
+
+        
+
+
 
 
 def main():
     # test_3()
+    
     # test()
     # test_2()
 
     # test_4()
     test_5()
+
+
 
 if __name__ == "__main__":
     main()
