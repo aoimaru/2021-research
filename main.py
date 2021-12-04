@@ -214,6 +214,17 @@ def test_7():
         print(similar_word)
 
 
+def test_10():
+    """
+    前後の関係を考慮したモデルの結果
+    """
+    path = "./libs/delv/before-after-2021-12-04 13:55:38.212561.model"
+    model = word2vec.Word2Vec.load(path)
+    similar_words = model.wv.most_similar(positive=["apt-get", "install"], topn=10)
+    for similar_word in similar_words:
+
+        print(similar_word)
+
 
 def main():
 
@@ -230,7 +241,8 @@ def main():
     # test_5()
     # test_6()
     # test_7()
-    test_9()
+    # test_9()
+    test_10()
 
 
 
