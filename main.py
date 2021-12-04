@@ -125,7 +125,7 @@ def test_3():
 
 
 def test_5():
-    pass
+    path = "default-2021-12-04 08:58:24.615672.model"
 
 
 def main():
