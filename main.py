@@ -176,7 +176,7 @@ def test_7():
     path = "./libs/delv/naivePython-2021-12-04 10:49:46.705357.model"
 
     model = word2vec.Word2Vec.load(path)
-    similar_words = model.wv.most_similar(positive=["rm", "-rf"], topn=10)
+    similar_words = model.wv.most_similar(positive=["apt-get", "install"], topn=10)
     for similar_word in similar_words:
 
         print(similar_word)
