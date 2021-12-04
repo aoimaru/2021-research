@@ -1,5 +1,6 @@
 import glob
 import os
+from gensim.models import word2vec
 
 from libs.dockerfiles import Model
 from libs.primitives import Primitive
@@ -125,15 +126,25 @@ def test_3():
 
 
 def test_5():
-    path = "default-2021-12-04 08:58:24.615672.model"
+    path = "./libs/delv/default-2021-12-04 08:58:24.615672.model"
+
+    model = word2vec.Word2Vec.load(path)
+    similar_words = model.wv.most_similar(positive=["ln", "-s"], topn=9)
+    for similar_word in similar_words:
+        print(similar_word)
 
 
 def main():
     # test_3()
+    
     # test()
     # test_2()
+
     # test_4()
-    test_4()
+    # test_4()
+    test_5()
+
+
 
 if __name__ == "__main__":
     main()
