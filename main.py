@@ -227,6 +227,34 @@ def test_10():
 
 
 
+def default():
+    file_paths = [comp for comp in glob.glob(BINNACLE_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
+    trainings = []
+    for file_path in file_paths:
+        # 
+        print()
+        primitive = Primitive(file_path)
+        # print(primitive.data)
+        responses, hash_dict = Structure.toStack(primitive.data)
+        for response in responses:
+
+            # 
+            # print()
+            contents = []
+            for res in response:
+                tokens = hash_dict[res]
+                tokens = Structure.toToken(tokens)
+                tokens = Structure.Equal(tokens)
+                # print("tokens:", tokens)
+                contents.append(tokens)
+        
+            context_before = Graph.toContent(contents)
+            context_after = Graph.toContentAfter(contents)
+            for before, after in zip(context_before, context_after):
+                trainings.append(before)
+                trainings.append(after)
+
+    W2V.execute(trainings, "default-test")
 
 
 def main():
@@ -245,7 +273,8 @@ def main():
     # test_6()
     # test_7()
     # test_9()
-    test_10()
+    # test_10()
+    default()
 
 
 
