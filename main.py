@@ -129,7 +129,7 @@ def test_5():
     path = "./libs/delv/default-2021-12-04 08:58:24.615672.model"
 
     model = word2vec.Word2Vec.load(path)
-    similar_words = model.wv.most_similar(positive=["install", "git"], topn=9)
+    similar_words = model.wv.most_similar(positive=["apt-get", "install"], topn=9)
     for similar_word in similar_words:
 
         print(similar_word)
