@@ -5,6 +5,40 @@
 
 ## 機能
 
+### D2Vクラス
+* executeメソッド(@staticmethod)
+- Doc2Vec学習モデルを生成
+- libs/dock2vecs.py
+
+### W2Vクラス
+* executeメソッド(@staticmethod)
+- Word2Vec学習モデルを生成
+- libs/word2vecs.py
+
+### Modelクラス
+- Dockerfileをナイーブに解析するオブジェクトを生成
+- libs/dockerfiles.py
+
+### Graphクラス
+- グラフ構造を表現
+- 追加予定機能
+    - 命令列の後ろを考慮した構造の表現
+- libs/graphs.py
+
+### Primitiveクラス
+- Dockerfileをprimitiveに解析
+- 既存のインデントを用いて, 命令列ないの単語の重要度を表現
+- libs/primitives.py
+
+### Structureクラス
+- toStackメソッド(@staticmethod)
+-  インデントを考慮して階層構造を表現, 実装
+- スタックを利用
+- libs/structures.py
+
+
+
+
 
 
 ## 結果
