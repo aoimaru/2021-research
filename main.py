@@ -260,7 +260,7 @@ def default():
 def default_test():
     path = "libs/delv/default-test-2021-12-05 01:45:27.835636.model"
     model = word2vec.Word2Vec.load(path)
-    similar_words = model.wv.most_similar(positive=["npm"], topn=10)
+    similar_words = model.wv.most_similar(positive=["apt-get", "install", "update", "-y", "--no-install-recommends"], topn=10)
     for similar_word in similar_words:
 
         print(similar_word)
@@ -297,8 +297,9 @@ def debian_default():
 
 def debian_default_test():
     path = "libs/delv/debian-default-test-2021-12-05 12:37:23.295260.model"
+    # path = "libs/delv/default-test-2021-12-05 01:45:27.835636.model"
     model = word2vec.Word2Vec.load(path)
-    similar_words = model.wv.most_similar(positive=["RUN"], topn=10)
+    similar_words = model.wv.most_similar(positive=["ln"], topn=20)
     for similar_word in similar_words:
 
         print(similar_word)
@@ -349,8 +350,8 @@ def main():
     # test_7()
     # test_9()
     # test_10()
-    # default_test()
-    debian_default_test()
+    default_test()
+    # debian_default_test()
 
 
 
