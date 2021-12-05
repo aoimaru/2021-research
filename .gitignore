@@ -131,3 +131,4 @@ dmypy.json
 
 # binnacle icseデータはgitで管理しない.
 /binnacle-icse2020
+/debian-binnacle-icse2020
