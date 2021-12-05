@@ -2,7 +2,7 @@ import glob
 import os
 from gensim.models import word2vec
 
-from libs.dockerfiles import Model
+from libs.dockerfiles import Dockerfile
 from libs.primitives import Primitive
 from libs.structures import Structure
 from libs.dock2vecs import D2V

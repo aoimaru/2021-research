@@ -5,7 +5,7 @@ import hashlib
 
 URL_RE_PATTERN = "https?://[^/]+/"
 
-class Model(object):
+class Dockerfile(object):
     def __init__(self, file_path):
 
         def norm(token):
