@@ -286,11 +286,9 @@ def debian_default():
                 # print("tokens:", tokens)
                 contents.append(tokens)
         
-            context_before = Graph.toContent(contents)
-            context_after = Graph.toContentAfter(contents)
-            for before, after in zip(context_before, context_after):
-                trainings.append(before)
-                trainings.append(after)
+            contexts = Graph.toContent(contents)
+            for context in contexts:
+                trainings.append(context)
 
     W2V.execute(trainings, "default-test")
 
@@ -351,7 +349,7 @@ def main():
     # test_9()
     # test_10()
     # default_test()
-    debian_default_test()
+    debian_default()
 
 
 
