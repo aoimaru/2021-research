@@ -12,3 +12,18 @@ class W2V(object):
             window=5
         )
         model.save("./libs/delv/{}-{}.model".format(name, current_time))
+    
+
+    @staticmethod
+    def cbow(corpus, name="default"):
+        current_time = str(datetime.datetime.now())
+        model = word2vec.Word2Vec(
+            corpus,
+            sg=0,
+            size=100,
+            min_count=20,
+            window=5
+        )
+
+        model.save("./libs/delv/{}-{}.model".format(name, current_time))
+        

@@ -304,6 +304,26 @@ def debian_default_test():
         print(similar_word)
 
 
+
+def cbow():
+    file_paths = [comp for comp in glob.glob(PYTHON_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
+    trainings = []
+    for file_path in file_paths:
+        model = Model(file_path)
+        primitives_key = model.primitives_key
+        primitives_dict = model._primitives_dict
+
+        for p_key in primitives_key:
+            p_items = primitives_dict[p_key]
+            for p_item in p_items:
+                tokens = Structure.toToken(p_item)
+                tokens = Structure.Equal(tokens)
+                # print(tokens)
+                trainings.append(tokens)
+    
+    W2V.cbow(trainings, name="cbow_python_project")
+
+
 def main():
 
 
