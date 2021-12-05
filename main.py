@@ -297,12 +297,14 @@ def debian_default_test():
     path = "libs/delv/default-test-2021-12-06 01:05:49.243366.model"
     # path = "libs/delv/default-test-2021-12-05 01:45:27.835636.model"
     model = word2vec.Word2Vec.load(path)
-    similar_words = model.wv.most_similar(positive=["cd
-    "], topn=20)
+    similar_words = model.wv.most_similar(positive=["apt-get", "update", "install"], topn=20)
     for similar_word in similar_words:
 
         print(similar_word)
 
+def add_test():
+    path = "libs/delv/default-test-2021-12-06 01:05:49.243366.model"
+    model = word2vec.Word2Vec.load(path)
 
 
 def cbow():
@@ -323,6 +325,25 @@ def cbow():
     
     W2V.cbow(trainings, name="cbow_python_project")
 
+def naive():
+    file_paths = [comp for comp in glob.glob(DEBIAN_BINNACLE_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
+    trainings = []
+    for file_path in file_paths:
+        trainings = []
+    for file_path in file_paths:
+        model = Model(file_path)
+        primitives_key = model.primitives_key
+        primitives_dict = model._primitives_dict
+
+        for p_key in primitives_key:
+            p_items = primitives_dict[p_key]
+            for p_item in p_items:
+                tokens = Structure.toToken(p_item)
+                tokens = Structure.Equal(tokens)
+                # print(tokens)
+                trainings.append(tokens)
+    
+    W2V.execute(trainings, "naiveDebian")
 
 def main():
 
@@ -350,7 +371,8 @@ def main():
     # test_9()
     # test_10()
     # default_test()
-    debian_default_test()
+    # debian_default_test()
+    naive()
 
 
 
