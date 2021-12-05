@@ -38,7 +38,9 @@
 
 
 
-
+## モデル
+### libs/delv/default-test-2021-12-05 01:45:27.835636.model
+- binnacle-icse202を全て学習させたモデル
 
 
 ## 結果

@@ -256,25 +256,37 @@ def default():
 
     W2V.execute(trainings, "default-test")
 
+def default_test():
+    path = "libs/delv/default-test-2021-12-05 01:45:27.835636.model"
+    model = word2vec.Word2Vec.load(path)
+    similar_words = model.wv.most_similar(positive=["npm"], topn=10)
+    for similar_word in similar_words:
+
+        print(similar_word)
 
 def main():
 
 
     # test_3()
+
     
+
     # test()
     # test_2()
 
 
 
+
     # test_4()
     # test_4()
+
+
     # test_5()
     # test_6()
     # test_7()
     # test_9()
     # test_10()
-    default()
+    default_test()
 
 
 
