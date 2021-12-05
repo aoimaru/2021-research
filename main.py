@@ -345,6 +345,14 @@ def naive():
     
     W2V.execute(trainings, "naiveDebian")
 
+def naive_test():
+    path = "libs/delv/naiveDebian-2021-12-06 03:23:01.259376.model"
+    # path = "libs/delv/default-test-2021-12-05 01:45:27.835636.model"
+    model = word2vec.Word2Vec.load(path)
+    similar_words = model.wv.most_similar(positive=["apt-get", "install"], topn=20)
+    for similar_word in similar_words:
+        print(similar_word)
+
 def main():
 
 
@@ -372,7 +380,7 @@ def main():
     # test_10()
     # default_test()
     # debian_default_test()
-    naive()
+    naive_test()
 
 
 
