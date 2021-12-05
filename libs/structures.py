@@ -20,6 +20,8 @@ class Structure(object):
         # RUNなどのDocker構文を分割
         comps = []
         for line in lines:
+            if not line:
+                continue
             indent, line = floor(line)
             if indent == 0:
                 root = line.pop(0)
