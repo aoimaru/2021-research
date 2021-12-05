@@ -331,7 +331,7 @@ def naive():
     for file_path in file_paths:
         trainings = []
     for file_path in file_paths:
-        model = Model(file_path)
+        model = Dockerfile(file_path)
         primitives_key = model.primitives_key
         primitives_dict = model._primitives_dict
 

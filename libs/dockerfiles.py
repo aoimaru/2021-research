@@ -87,8 +87,10 @@ class Dockerfile(object):
 
             Res = [norm(res) for res in Res]
             return Res
-
-        self._contents = dockerfile.parse_file(file_path)
+        try:
+            self._contents = dockerfile.parse_file(file_path)
+        except:
+            self._contents = []
 
         self._layers = []
         for content in self._contents:
