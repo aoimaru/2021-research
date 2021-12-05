@@ -1,3 +1,5 @@
 
 
 
+class Inspection(object):
+    pass
