@@ -294,10 +294,23 @@ def debian_default():
 
     W2V.execute(trainings, "default-test")
 
+
+def debian_default_test():
+    path = "libs/delv/debian-default-test-2021-12-05 12:37:23.295260.model"
+    model = word2vec.Word2Vec.load(path)
+    similar_words = model.wv.most_similar(positive=["rm", "-rf"], topn=10)
+    for similar_word in similar_words:
+
+        print(similar_word)
+
+
 def main():
 
 
     # test_3()
+
+
+
 
     
 
@@ -317,7 +330,7 @@ def main():
     # test_9()
     # test_10()
     # default_test()
-    debian_default()
+    debian_default_test()
 
 
 
