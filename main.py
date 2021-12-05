@@ -298,7 +298,7 @@ def debian_default():
 def debian_default_test():
     path = "libs/delv/debian-default-test-2021-12-05 12:37:23.295260.model"
     model = word2vec.Word2Vec.load(path)
-    similar_words = model.wv.most_similar(positive=["rm", "-rf"], topn=10)
+    similar_words = model.wv.most_similar(positive=["RUN"], topn=10)
     for similar_word in similar_words:
 
         print(similar_word)
