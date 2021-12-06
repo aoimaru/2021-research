@@ -156,7 +156,7 @@ def doc2vecs():
                 # print(tokens)
                 data.append(tokens)
     
-    model, hash_dict, hash_key = D2V.execute(data)
+    model, hash_dict, hash_key = D2V.execute(data, name="3000")
     for key, value in hash_dict.items():
         print(key)
     
