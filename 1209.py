@@ -21,19 +21,19 @@ DEBIAN_BINNACLE_PROJECT = "./debian-binnacle-icse2020/**"
 
 
 def doc2vecs():
-    file_paths = [comp for comp in glob.glob(PYTHON_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
+    file_paths = [comp for comp in glob.glob(DEBIAN_BINNACLE_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
     data = []
-    for file_path in file_paths:
+    for file_path in file_paths[:100]:
         
         primitive = Primitive(file_path)
         print()
         data = primitive.data
         layers = Structure.toLayer(data, file_path)
-        for layer in layers:
+        for hg, layer in enumerate(layers):
             print()
             responses = Structure.toStack(layer)
-            for response in responses:
-                print(response)
+            for wd, response in enumerate(responses):
+                print(file_path, hg, wd, response)
             
 
 def doc2vecs_test():

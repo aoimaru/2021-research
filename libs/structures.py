@@ -85,11 +85,6 @@ class Structure(object):
             res.append(copied)
         return res
 
-            
-            
-
-
-
 
     @staticmethod
     def toStack_old(lines):
