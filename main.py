@@ -163,7 +163,7 @@ def doc2vecs():
 def doc2vecs_test():
     hash_code = "85dfe0c9eb6e91c9989c1f1f7692e6f1e5f06c152bfaa80db1e1bd9544ae9"
 
-    model = Doc2Vec.load("model")
+    model = Doc2Vec.load("libs/D2Vs/default-2021-12-06 15:14:57.995406.model.wv.vectors.npy")
     # for sim_item in sim_items:
     #     print(sim_item)
     #     print(hash_dict[sim_item[0]][0], sim_item[1])
@@ -381,7 +381,7 @@ def main():
 
 
     # test_3()
-    doc2vecs()
+    doc2vecs_test()
 
 
 
