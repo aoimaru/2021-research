@@ -10,7 +10,7 @@ class D2V():
 
 
     @staticmethod
-    def execute(tokens, name="default"):
+    def execute_old(tokens, name="default"):
         hash_dict = {}
         hash_key = []
         training_docs = []
