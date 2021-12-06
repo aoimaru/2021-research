@@ -24,7 +24,7 @@ CNT = Const.book
 def test():
     # df = Dockerfile(TEST_PATH)
     file_paths = [comp for comp in glob.glob(PYTHON_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
-    for file_path in file_paths:
+    for file_path in file_paths[:100]:
         print()
         primitive = Primitive(file_path)
         # print(primitive.data)
@@ -49,7 +49,7 @@ def test_4():
         print()
         primitive = Primitive(file_path)
         # print(primitive.data)
-        responses, hash_dict = Structure.toStack(primitive.data)
+        responses, hash_dict = Structure.toStack_old(primitive.data)
         for response in responses:
 
             # 
@@ -383,8 +383,8 @@ def doc2vec_model():
 def main():
 
 
-    # test_3()
-    doc2vecs_test()
+    test()
+    # doc2vecs_test()
 
 
 

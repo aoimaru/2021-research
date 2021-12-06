@@ -1,9 +1,68 @@
 import copy
 import hashlib
 
+INSTRUCTIONS = [
+    "MAINTAINER",
+    "RUN",
+    "CMD",
+    "ENTRYPOINT",
+    "LABEL",
+    "EXPOSE",
+    "ENV",
+    "ADD",
+    "COPY",
+    "VOLUME",
+    "USER",
+    "WORKDIR",
+    "ARG",
+    "ONBUILD",
+    "STOPSIGNAL",
+    "HEALTHCHECK",
+    "SHELL"
+]
+
 class Structure(object):
     @staticmethod
+    def toLayer(comps, file_path):
+        layers = []
+        layer = []
+        while comps:
+            comp = comps.pop(0)
+            if not comp:
+                continue
+            if comp[0] in INSTRUCTIONS:
+                layers.append(layer)
+                layer = []
+                layer.append(comp)
+            else:
+                layer.append(comp)
+        return layers
+        
+    @staticmethod
     def toStack(lines):
+        def Floor(data):
+            indent = 0
+            while data:
+                word = data.pop(0)
+                indent += 1
+                if not word == "NL":
+                    data.insert(0, word)
+                    indent -= 1
+                    break
+            return indent, data
+        comps = []
+        for line in lines:
+            if not line:
+                continue
+            indent, line = Floor(line)
+            if indent == 0:
+                pass
+
+
+
+    @staticmethod
+    def toStack_old(lines):
+        print("lines")
         response = []
         # res = []
         def floor(data):
