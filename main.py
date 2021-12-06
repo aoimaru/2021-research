@@ -131,13 +131,41 @@ def test_3():
         print(key)
     
     
-    print(model.docvecs['83b65817171365b31fe9538d8bd98bca800b35bbbca8f9df22e9f96219dfb0ed'])
+    print(model.docvecs['11d2d3b7e1326b29394081b9791024e9cadeb4b0dffe4f471770bbaffe81f607'])
 
-    sim_items = model.docvecs.most_similar('83b65817171365b31fe9538d8bd98bca800b35bbbca8f9df22e9f96219dfb0ed')
+    sim_items = model.docvecs.most_similar('11d2d3b7e1326b29394081b9791024e9cadeb4b0dffe4f471770bbaffe81f607')
 
     for sim_item in sim_items:
         print(sim_item)
         print(hash_dict[sim_item[0]][0], sim_item[1])
+
+def doc2vecs():
+    file_paths = [comp for comp in glob.glob(DEBIAN_BINNACLE_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
+    data = []
+    for file_path in file_paths:
+        primitive = Primitive(file_path)
+        responses, hash_dict = Structure.toStack(primitive.data)
+        for response in responses:
+            for res in response:
+                tokens = hash_dict[res]
+                tokens = Structure.toToken(tokens)
+                tokens = Structure.Equal(tokens)
+                # print(tokens)
+                data.append(tokens)
+    
+    model, hash_dict, hash_key = D2V.execute(data)
+    for key, value in hash_dict.items():
+        print(key)
+    
+def doc2vecs_test():
+    
+    # print(model.docvecs['11d2d3b7e1326b29394081b9791024e9cadeb4b0dffe4f471770bbaffe81f607'])
+
+    # sim_items = model.docvecs.most_similar('11d2d3b7e1326b29394081b9791024e9cadeb4b0dffe4f471770bbaffe81f607')
+
+    # for sim_item in sim_items:
+    #     print(sim_item)
+    #     print(hash_dict[sim_item[0]][0], sim_item[1])
 
 def test_5():
     path = "./libs/delv/default-2021-12-04 08:58:24.615672.model"
@@ -351,7 +379,8 @@ def doc2vec_model():
 def main():
 
 
-    test_3()
+    # test_3()
+    doc2vecs()
 
 
 
