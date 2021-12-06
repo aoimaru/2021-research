@@ -23,7 +23,7 @@ DEBIAN_BINNACLE_PROJECT = "./debian-binnacle-icse2020/**"
 def doc2vecs():
     file_paths = [comp for comp in glob.glob(DEBIAN_BINNACLE_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
     data = []
-    for file_path in file_paths[:3000]:
+    for file_path in file_paths[:30]:
         primitive = Primitive(file_path)
         responses, hash_dict = Structure.toStack(primitive.data)
         for response in responses:
@@ -31,12 +31,10 @@ def doc2vecs():
                 tokens = hash_dict[res]
                 tokens = Structure.toToken(tokens)
                 tokens = Structure.Equal(tokens)
-                # print(tokens)
-                data.append(tokens)
+                print(tokens)
+                # data.append(tokens)
     
-    model, hash_dict, hash_key = D2V.execute(data, name="3000")
-    for key, value in hash_dict.items():
-        print(key)
+    
     
 def doc2vecs_test():
     hash_code = "8e7af6d92f0a007015d1fe88aab8f8b1570341a1bd2e50d1e315e34d44ac6bdd"
@@ -47,7 +45,7 @@ def doc2vecs_test():
         print(sim_item)
 
 def main():
-    pass
+    doc2vecs()
 
 if __name__ == "__main__":
     main()

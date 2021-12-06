@@ -228,6 +228,12 @@ class Structure(object):
                 step.pop(-1)
                 res.extend(step)
         return res
+    
+    @staticmethod
+    def toArchitect(responses, hash_dict):
+        for order, response in enumerate(responses):
+            for column, res in response:
+                pass
 
 
 
