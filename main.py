@@ -161,7 +161,7 @@ def doc2vecs():
         print(key)
     
 def doc2vecs_test():
-    hash_code = "85dfe0c9eb6e91c9989c1f1f7692e6f1e5f06c152bfaa80db1e1bd9544ae9"
+    hash_code = "8e7af6d92f0a007015d1fe88aab8f8b1570341a1bd2e50d1e315e34d44ac6bdd"
 
     model = Doc2Vec.load("libs/D2Vs/default-2021-12-06 15:14:57.995406.model")
     sim_items = model.most_similar("673a772d06993b90aade78bc4c5816e69056b75d5cbce3ed2ffb87720b011cd7")
@@ -384,7 +384,7 @@ def main():
 
 
     # test_3()
-    doc2vecs()
+    doc2vecs_test()
 
 
 

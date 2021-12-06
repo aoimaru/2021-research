@@ -1,0 +1,53 @@
+import glob
+import os
+from gensim.models import word2vec
+
+from libs.dockerfiles import Dockerfile
+from libs.primitives import Primitive
+from libs.structures import Structure
+from libs.doc2vecs import D2V
+from libs.consts import Const, INSTRUCTIONS
+from libs.graphs import Graph
+from libs.word2vecs import W2V
+
+from gensim.models.doc2vec import Doc2Vec
+from gensim.models.doc2vec import TaggedDocument
+
+PYTHON_PROJECT = "./python/**"
+OTHERS_PROJECT = "./Others/**"
+GOLANG_PROJECT = "./golang/**"
+BINNACLE_PROJECT = "./binnacle-icse2020/**"
+DEBIAN_BINNACLE_PROJECT = "./debian-binnacle-icse2020/**"
+
+
+def doc2vecs():
+    file_paths = [comp for comp in glob.glob(DEBIAN_BINNACLE_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
+    data = []
+    for file_path in file_paths[:3000]:
+        primitive = Primitive(file_path)
+        responses, hash_dict = Structure.toStack(primitive.data)
+        for response in responses:
+            for res in response:
+                tokens = hash_dict[res]
+                tokens = Structure.toToken(tokens)
+                tokens = Structure.Equal(tokens)
+                # print(tokens)
+                data.append(tokens)
+    
+    model, hash_dict, hash_key = D2V.execute(data, name="3000")
+    for key, value in hash_dict.items():
+        print(key)
+    
+def doc2vecs_test():
+    hash_code = "8e7af6d92f0a007015d1fe88aab8f8b1570341a1bd2e50d1e315e34d44ac6bdd"
+
+    model = Doc2Vec.load("libs/D2Vs/default-2021-12-06 15:14:57.995406.model")
+    sim_items = model.most_similar("673a772d06993b90aade78bc4c5816e69056b75d5cbce3ed2ffb87720b011cd7")
+    for sim_item in sim_items:
+        print(sim_item)
+
+def main():
+    pass
+
+if __name__ == "__main__":
+    main()
