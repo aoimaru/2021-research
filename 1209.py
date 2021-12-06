@@ -31,7 +31,9 @@ def doc2vecs():
         layers = Structure.toLayer(data, file_path)
         for layer in layers:
             print()
-            Structure.toStack(layer)
+            responses = Structure.toStack(layer)
+            for response in responses:
+                print(response)
             
 
 def doc2vecs_test():
