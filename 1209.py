@@ -24,14 +24,17 @@ def doc2vecs():
     file_paths = [comp for comp in glob.glob(DEBIAN_BINNACLE_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
     data = []
     for file_path in file_paths[:30]:
+        
         primitive = Primitive(file_path)
         responses, hash_dict = Structure.toStack(primitive.data)
         for response in responses:
+            print()
             for res in response:
                 tokens = hash_dict[res]
+                
                 tokens = Structure.toToken(tokens)
                 tokens = Structure.Equal(tokens)
-                print(tokens)
+                print(file_path, ":", tokens)
                 # data.append(tokens)
     
     
