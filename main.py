@@ -145,7 +145,7 @@ def test_3():
 def doc2vecs():
     file_paths = [comp for comp in glob.glob(DEBIAN_BINNACLE_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
     data = []
-    for file_path in file_paths:
+    for file_path in file_paths[:3000]:
         primitive = Primitive(file_path)
         responses, hash_dict = Structure.toStack(primitive.data)
         for response in responses:
@@ -163,7 +163,10 @@ def doc2vecs():
 def doc2vecs_test():
     hash_code = "85dfe0c9eb6e91c9989c1f1f7692e6f1e5f06c152bfaa80db1e1bd9544ae9"
 
-    model = Doc2Vec.load("libs/D2Vs/default-2021-12-06 15:14:57.995406.model.wv.vectors.npy")
+    model = Doc2Vec.load("libs/D2Vs/default-2021-12-06 15:14:57.995406.model")
+    sim_items = model.most_similar("673a772d06993b90aade78bc4c5816e69056b75d5cbce3ed2ffb87720b011cd7")
+    for sim_item in sim_items:
+        print(sim_item)
     # for sim_item in sim_items:
     #     print(sim_item)
     #     print(hash_dict[sim_item[0]][0], sim_item[1])
@@ -381,7 +384,7 @@ def main():
 
 
     # test_3()
-    doc2vecs_test()
+    doc2vecs()
 
 
 
