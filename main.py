@@ -5,10 +5,13 @@ from gensim.models import word2vec
 from libs.dockerfiles import Dockerfile
 from libs.primitives import Primitive
 from libs.structures import Structure
-from libs.dock2vecs import D2V
+from libs.doc2vecs import D2V
 from libs.consts import Const, INSTRUCTIONS
 from libs.graphs import Graph
 from libs.word2vecs import W2V
+
+from gensim.models.doc2vec import Doc2Vec
+from gensim.models.doc2vec import TaggedDocument
 
 PYTHON_PROJECT = "./python/**"
 OTHERS_PROJECT = "./Others/**"
@@ -158,11 +161,9 @@ def doc2vecs():
         print(key)
     
 def doc2vecs_test():
-    
-    # print(model.docvecs['11d2d3b7e1326b29394081b9791024e9cadeb4b0dffe4f471770bbaffe81f607'])
+    hash_code = "85dfe0c9eb6e91c9989c1f1f7692e6f1e5f06c152bfaa80db1e1bd9544ae9"
 
-    # sim_items = model.docvecs.most_similar('11d2d3b7e1326b29394081b9791024e9cadeb4b0dffe4f471770bbaffe81f607')
-
+    model = Doc2Vec.load("model")
     # for sim_item in sim_items:
     #     print(sim_item)
     #     print(hash_dict[sim_item[0]][0], sim_item[1])

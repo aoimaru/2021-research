@@ -6,10 +6,11 @@ import datetime
 
 class D2V():
     @staticmethod
-    def execute(tokens):
+    def execute(tokens, name="default"):
         hash_dict = {}
         hash_key = []
         training_docs = []
+        current_time = str(datetime.datetime.now())
         for token in tokens:
             # print("token:", token)
             rs = " ".join(token)
@@ -25,6 +26,7 @@ class D2V():
 
             training_docs.append(training_doc)
         model = Doc2Vec(documents=training_docs, min_count=1, dm=0)
+        model.save("./libs/D2Vs/{}-{}.model".format(name, current_time))
         return model, hash_dict, hash_key
     
 
