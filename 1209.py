@@ -23,13 +23,9 @@ def tagging(file_path, layers):
     res = {}
     for hg, layer in enumerate(layers):
         responses = Structure.toStack(layer)
-        for wd, response in enumerate(responses):
-            response = Structure.toToken(response)
-            response = Structure.Equal(response)
-            print("response:", response)
-            tag_name = "{}/{}/{}".format(file_path, str(hg), str(wd))[1:]
-            res[tag_name] = response
-        return res
+        for response in responses:
+            print(response)
+
             
 
 def doc2vecs():
@@ -39,7 +35,8 @@ def doc2vecs():
         primitive = Primitive(file_path)
         data = primitive.data
         layers = Structure.toLayer(data, file_path)
-        tagged_data = tagging(file_path, layers)
+        
+        tagging(file_path, layers)
         # for key, value in tagged_data.items():
         #     print(key ,value)
             
