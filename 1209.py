@@ -65,7 +65,7 @@ def doc2vecs_test():
 
     #     print(value["location"], value["token"])
 
-    code = toHash("/debian-binnacle-icse2020/252778518.Dockerfile/1/2")
+    code = toHash("/debian-binnacle-icse2020/252778518.Dockerfile/1/3")
     model = Doc2Vec.load("libs/D2Vs/DEBIAN_BINNACLE_PROJECT-2021-12-07 19:53:04.154134.model")
     sim_items = model.docvecs.doctags
     # sim_items = model.docvecs.similarity("dd5320931121b545c395d98dd14add71a446b3584e19768fdabadd9fa90ba85b", "6a64aec3301521f1d1492da8c05d830f5f16950c90de4264c6cf32a1a53dd909")

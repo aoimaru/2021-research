@@ -46,3 +46,51 @@ python3 1209.py  1317.54s user 145.61s system 104% cpu 23:24.34 total
 0.7453068494796753
 /debian-binnacle-icse2020/137908525.Dockerfile/2/10
 ['libatlas-base-dev', 'BACK', 'NL']
+
+
+
+
+
+===============================================================
+['apt-get']
+===============================================================
+
+0.78349769115448
+/debian-binnacle-icse2020/469677423.Dockerfile/5/9
+['apt-get']
+
+0.7469608187675476
+/debian-binnacle-icse2020/166542208.Dockerfile/5/129
+['apt-get']
+
+0.744652509689331
+/debian-binnacle-icse2020/291180710.Dockerfile/1/2
+['echo', 'deb', 'http://http.us.debian.org/debian/', 'jessie-backports', 'main', '|', 'sudo', 'tee', '-a', '/etc/apt/sources.list', 'BACK', 'NL']
+
+0.7432955503463745
+/debian-binnacle-icse2020/252775813.Dockerfile/4/3
+['apt-get']
+
+0.7367854118347168
+/debian-binnacle-icse2020/177225633.Dockerfile/1/1
+['apt-get']
+
+0.7359511852264404
+/debian-binnacle-icse2020/317849712.Dockerfile/16/0
+['RUN', 'tar', '-zxvf', 'curl-7.45.0.tar.gz', 'NL']
+
+0.7353602647781372
+/debian-binnacle-icse2020/334943064.Dockerfile/18/0
+['RUN', './configure', '--with-ssl', '--with-nghttp2', '=', '/usr/local', 'NL']
+
+0.7341663837432861
+/debian-binnacle-icse2020/252777190.Dockerfile/1/4
+['apt-get', 'install', '-y', 'BACK', 'NL']
+
+0.7334623336791992
+/debian-binnacle-icse2020/291686706.Dockerfile/3/3
+['AND']
+
+0.7326422333717346
+/debian-binnacle-icse2020/345373768.Dockerfile/3/8
+['RUN', 'AND', 'tar', '-xzf', 'go$GO_VERSION.linux-arm64.tar.gz', '-C', '/usr/local/go', '--strip-components', '=', '1', 'BACK', 'NL']
