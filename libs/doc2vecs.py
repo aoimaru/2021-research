@@ -45,7 +45,7 @@ class D2V():
             window=5
         )
         model.save("./libs/D2Vs/{}-{}.model".format(name, current_time))
-        Flag = toJson(training_data)
+        Flag = toJson(training_data, name)
         print(Flag)
 
 
