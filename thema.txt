@@ -1,3 +1,48 @@
 
 True
 python3 1209.py  1317.54s user 145.61s system 104% cpu 23:24.34 total
+
+
+===============================================================
+['sed', '-i', 's/#', 'BACKBACK', 'BACKLEFT', '.*multiverse$BACKBACK', 'BACKRIGHT', '/BACK1/g', '/etc/apt/sources.list', 'AND', 'BACK', 'NL']
+===============================================================
+
+0.7784994840621948
+/debian-binnacle-icse2020/259467294.Dockerfile/3/0
+['RUN', 'sed', '-i', 's/deb.debian.org/mirrors.aliyun.com/g', '/etc/apt/sources.list', 'NL']
+
+0.7647809982299805
+/debian-binnacle-icse2020/345363011.Dockerfile/1/21
+['libstdc++6']
+
+0.7636770606040955
+/debian-binnacle-icse2020/275055131.Dockerfile/2/2
+['sed', '-i', 's/#', 'BACK', 'BACKLEFT', '.*multiverse$BACK', 'BACKRIGHT', '/BACK1/g', '/etc/apt/sources.list', 'AND', 'BACK', 'NL']
+
+0.7616903781890869
+/debian-binnacle-icse2020/472199084.Dockerfile/3/3
+['RUN', 'sed', '-i', 's#deb', 'http://deb.debian.org/debian', 'stretch-updates', 'main#deb', 'http://deb.debian.org/debian', 'stretch-updates', 'main', 'non-free#g', '/etc/apt/sources.list', 'NL']
+
+0.757614016532898
+/debian-binnacle-icse2020/210730013.Dockerfile/2/19
+['libleveldb-dev']
+
+0.7510632276535034
+/debian-binnacle-icse2020/409965896.Dockerfile/2/0
+['RUN', 'sed', '-i', 's,^deb-src,#deb-src,g', '/etc/apt/sources.list', 'NL']
+
+0.7492399215698242
+/debian-binnacle-icse2020/239626776.Dockerfile/6/3
+['RUN', 'AND', 'sed', '-i', 's/^BACK', 'BACKLEFT', 'UserBACK|GroupBACK', 'BACKRIGHT', '.*/BACK1', 'asterisk/', '/etc/apache2/apache2.conf', 'BACK', 'NL']
+
+0.7479878664016724
+/debian-binnacle-icse2020/282983936.Dockerfile/5/2
+['sed', '-i', 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g', '/etc/apt/sources.list', 'AND', 'apt-get', 'update', 'NL']
+
+0.7461509108543396
+/debian-binnacle-icse2020/293369580.Dockerfile/2/0
+['RUN', 'sed', '-e', 's%http://archive.ubuntu.com/ubuntu/%mirror://mirrors.ubuntu.com/mirrors.txt%', '-i', '/etc/apt/sources.list', 'NL']
+
+0.7453068494796753
+/debian-binnacle-icse2020/137908525.Dockerfile/2/10
+['libatlas-base-dev', 'BACK', 'NL']
