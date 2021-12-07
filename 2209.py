@@ -27,12 +27,10 @@ def tagging(file_path, layers):
     file_path = file_path[DEL:]
     res = {}
     for hg, layer in enumerate(layers):
-        responses = Structure.toStack(layer)
-        for wd, response in enumerate(responses):
-            response = Structure.toToken(response)
-            response = Structure.Equal(response)
-            tag_name = "{}/{}/{}".format(file_path, str(hg), str(wd))
-            res[tag_name] = response
+        layer = Structure.toToken(layer)
+        layer = Structure.Equal(layer)
+        tag_name = "{}/{}".format(file_path, str(hg))
+        res[tag_name] = layer
     return res
 
 
@@ -43,12 +41,16 @@ def doc2vecs():
         print(file_path)
         df = Dockerfile(file_path)
         layers = df.layers
-        for layer in layers:
-            print(layer)
+        tagged_data = tagging(file_path, layers)
+        training_data.update(tagged_data)
+    D2V.do(training_data, name="NAIVE_DEBIAN_BINNACLE_PROJECT")
+    
+        
 
 
 
 def main():
+
     doc2vecs()
 
     # doc2vecs_test()

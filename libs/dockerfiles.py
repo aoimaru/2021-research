@@ -97,6 +97,7 @@ class Dockerfile(object):
 
         for content in self._contents:
             if content.cmd == "RUN":
+                
                 Res = to_methods(content.value[0])
                 self._layers.append(Res)
             elif content.cmd == "ENV" or "COPY" or "ADD" or "ARG" or "VOLUME":
