@@ -52,7 +52,12 @@ def doc2vecs_test():
         return hash_object
 
     def openJson():
-        pass
+        OPEN_JSON_PATH = "./libs/JSON/2021-12-07 19:32:25.248976.json"
+        with open(OPEN_JSON_PATH, mode="r") as f:
+            comps = json.load(f)
+        return comps
+    
+    comps = openJson()
 
     code = toHash("/python/3.6/alpine3.14/Dockerfile/12/15")
     model = Doc2Vec.load("libs/D2Vs/new-2021-12-07 19:22:03.146937.model")
@@ -61,9 +66,8 @@ def doc2vecs_test():
     sim_items = model.docvecs.most_similar(code)
     for sim_item in sim_items:
         print(sim_item[0], sim_item[1])
-    print(model["1f8a4c21a24d32f42e7cb544fc0d0311c6877bef521f3a4d8c2ea25e1d2fb514"])
-    print(type(model["1f8a4c21a24d32f42e7cb544fc0d0311c6877bef521f3a4d8c2ea25e1d2fb514"]))
-    print(type(model))
+        print(comps[sim_item[0]]["location"])
+        print(comps[sim_item[0]]["token"])
     
 
 def main():
@@ -74,7 +78,8 @@ def main():
 
 
 
-    doc2vecs()
+
+    doc2vecs_test()
 
 
 
