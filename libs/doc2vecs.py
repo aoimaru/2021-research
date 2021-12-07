@@ -15,7 +15,7 @@ class D2V():
             hash_object = hashlib.sha256(word.encode()).hexdigest()
             return hash_object
         
-        def toJson(training_data):
+        def toJson(training_data, name):
             objs = {}
             for td_key, td_value in training_data.items():
                 td_hash = hashlib.sha256(td_key.encode()).hexdigest()
@@ -26,7 +26,7 @@ class D2V():
                 }
                 objs[td_hash] = data
             current_time = str(datetime.datetime.now())
-            file_path = JSON_FILE_PATH+"{}.json".format(current_time)
+            file_path = JSON_FILE_PATH+"{}:{}.json".format(name, current_time)
             try:
                 with open(file_path, mode="w") as f:
                     json.dump(objs, f, ensure_ascii=False, indent=4)

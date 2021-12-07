@@ -45,7 +45,7 @@ def doc2vecs():
         layers = Structure.toLayer(data, file_path)
         tagged_data = tagging(file_path, layers)
         training_data.update(tagged_data)
-    D2V.do(training_data, name="new")
+    D2V.do(training_data, name="PYTHON_PROJECT")
 
 def doc2vecs_test():
     def toHash(word):
@@ -79,6 +79,7 @@ def doc2vecs_test():
 
 
 
+
 def main():
 
 
@@ -89,7 +90,7 @@ def main():
 
 
 
-    doc2vecs_test()
+    doc2vecs()
 
 
 
