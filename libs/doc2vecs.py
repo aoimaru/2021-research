@@ -3,6 +3,9 @@ from gensim.models.doc2vec import TaggedDocument
 
 import hashlib
 import datetime
+import json
+
+JSON_FILE_PATH = "./JSON/"
 
 class D2V():
     @staticmethod
@@ -10,6 +13,27 @@ class D2V():
         def toHash(word):
             hash_object = hashlib.sha256(word.encode()).hexdigest()
             return hash_object
+        
+        def toJson(training_data):
+            objs = {}
+            for td_key, td_value in training_data:
+                td_hash = toHash(td_key)
+                data = {
+                    "location": to_key,
+                    "token": td_value 
+                }
+                objs[toHash] = data
+
+            current_time = str(datetime.datetime.now())
+            file_path = JSON_FILE_PATH+"{}.json".format(current_time)
+            try:
+                with open(file_path, mode="w") as f:
+                    json.dumps(objs, f, ensure_ascii=False, indent=4)
+            except Exception as e:
+                return False
+            else:
+                return True
+            
         current_time = str(datetime.datetime.now())
         documents = [TaggedDocument(words=token, tags=[toHash(tag_name)]) for tag_name, token in training_data.items()]
         model = Doc2Vec(
@@ -19,6 +43,7 @@ class D2V():
             window=5
         )
         model.save("./libs/D2Vs/{}-{}.model".format(name, current_time))
+        Flag = toJson(training_data)
 
 
 

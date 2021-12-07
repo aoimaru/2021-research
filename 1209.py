@@ -70,7 +70,7 @@ def main():
 
 
 
-    doc2vecs_test()
+    doc2vecs()
 
 
 
