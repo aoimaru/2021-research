@@ -65,26 +65,25 @@ class Structure(object):
 
         tag = 0
         stacks = []
-        if not comps:
-            continue
-        root = comps.pop(0)
-        stacks.append(root[1])
-        for comp in comps:
-            if comp[0] > tag:
-                stacks.append(comp[1])
-                tag = comp[0]
-            else:
-                while True:
-                    if len(stacks) <= comp[0]:
-                        break
-                    stacks.pop(-1)
-                stacks.append(comp[1])
-                tag = comp[0]
-            com = []
-            for stack in stacks:
-                com.extend(stack)
-            copied = copy.copy(com)
-            res.append(copied)
+        if comps:
+            root = comps.pop(0)
+            stacks.append(root[1])
+            for comp in comps:
+                if comp[0] > tag:
+                    stacks.append(comp[1])
+                    tag = comp[0]
+                else:
+                    while True:
+                        if len(stacks) <= comp[0]:
+                            break
+                        stacks.pop(-1)
+                    stacks.append(comp[1])
+                    tag = comp[0]
+                com = []
+                for stack in stacks:
+                    com.extend(stack)
+                copied = copy.copy(com)
+                res.append(copied)
         return res
 
 
