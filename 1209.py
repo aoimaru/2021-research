@@ -50,9 +50,7 @@ def doc2vecs_test():
     def toHash(word):
         hash_object = hashlib.sha256(word.encode()).hexdigest()
         return hash_object
-    file_paths = [comp for comp in glob.glob(PYTHON_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
-    for file_path in file_paths:
-        print(file_path)
+
     code = toHash("/python/3.6/alpine3.14/Dockerfile/12/15")
     model = Doc2Vec.load("libs/D2Vs/new-2021-12-07 18:44:28.292220.model")
     sim_items = model.docvecs.doctags
@@ -60,7 +58,9 @@ def doc2vecs_test():
     sim_items = model.docvecs.most_similar(code)
     for sim_item in sim_items:
         print(sim_item[0], sim_item[1])
-        
+    print(model["1f8a4c21a24d32f42e7cb544fc0d0311c6877bef521f3a4d8c2ea25e1d2fb514"])
+    print(type(model["1f8a4c21a24d32f42e7cb544fc0d0311c6877bef521f3a4d8c2ea25e1d2fb514"]))
+    print(type(model))
     
 
 def main():
