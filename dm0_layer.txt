@@ -1,2 +1,140 @@
 python3 1209.py  1107.88s user 84.55s system 104% cpu 18:59.51 total
 
+===============================================================
+['RUN', 'apt-get', 'update', 'AND', 'apt-get', 'install', 'openssl', 'libmediainfo0v5', '-y', 'NL']
+===============================================================
+
+0.9870356917381287
+/debian-binnacle-icse2020/278846247.Dockerfile/4/10
+['apt-get', 'install', '-y', 'vim', 'NL']
+
+0.985932469367981
+/debian-binnacle-icse2020/400223627.Dockerfile/11/0
+['RUN', 'apt-get', '-qq', 'install', 'libarchive-dev', 'uuid-dev', 'libcgroup-dev', 'libboost-filesystem-dev', 'libboost-thread-dev', 'libnl-3-dev', 'libnl-genl-3-dev', 'libzookeeper-mt-dev', 'libpqxx-dev', 'NL']
+
+0.985512912273407
+/debian-binnacle-icse2020/167575346.Dockerfile/4/0
+['RUN', 'apt-get', 'install', '-y', 'libibus-1.0-dev', 'libdbus-1-dev', 'libglib2.0-dev', 'subversion', 'libqt4-dev', 'libzinnia-dev', 'tegaki-zinnia-japanese', 'libgtk2.0-dev', 'libxcb-xfixes0-dev', 'NL']
+
+0.9851526618003845
+/debian-binnacle-icse2020/145134095.Dockerfile/2/5
+['apt-get', '#', 'install', 'opencl', 'and', 'some', 'other', 'dependencies', 'BACK', 'NL']
+
+0.9848447442054749
+/debian-binnacle-icse2020/318237040.Dockerfile/14/0
+['RUN', 'apt-get', 'install', '-y', 'php-pear', 'pkg-config', 'libbson-1.0', 'libmongoc-1.0-0', 'php-xml', 'php-dev', 'NL']
+
+0.9845942854881287
+/debian-binnacle-icse2020/397629688.Dockerfile/4/4
+['AND', 'apt-get', 'install', '-y', 'nodejs', 'BACK', 'NL']
+
+0.9845888018608093
+/debian-binnacle-icse2020/345357195.Dockerfile/2/2
+['RUN', 'apt-get', 'update', 'AND', 'apt-get', 'install', '-y', '--no-install-recommends', 'BACK', 'NL', 'gcc', 'BACK', 'NL']
+
+0.9843401908874512
+/debian-binnacle-icse2020/209005081.Dockerfile/7/0
+['RUN', 'apt-get', '-y', 'install', 'vpp', 'vpp-plugins', 'NL']
+
+0.9842875003814697
+/debian-binnacle-icse2020/236480593.Dockerfile/5/0
+['RUN', 'apt-get', 'install', '-y', 'libmediainfo-dev', 'libmediainfo0v5', 'mediainfo', 'NL']
+
+0.9842461943626404
+/debian-binnacle-icse2020/382069731.Dockerfile/70/0
+['RUN', 'yum', 'install', '-y', 'zlib-devel', 'bzip2-devel', 'openssl-devel', 'ncurses-devel', 'sqlite-devel', 'BACK', 'NL']
+python3 1209.py  30.70s user 14.86s system 94% cpu 48.397 total
+
+
+
+===============================================================
+['RUN', 'mesonconf', 'output', '-Dprefix', '=', '/libmpdclient-dist', 'NL']
+===============================================================
+
+0.988463282585144
+/debian-binnacle-icse2020/382070268.Dockerfile/40/0
+['ARG', 'X265_REPO', '=', 'https://github.com/videolan/x265/archive/', 'SUBLEFT', 'X265_VER}.tar.gz', 'NL']
+
+0.9881231784820557
+/debian-binnacle-icse2020/382070009.Dockerfile/90/0
+['ARG', 'GST_PLUGIN_GOOD_REPO', '=', 'https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-', 'SUBLEFT', 'GST_VER}.tar.xz', 'NL']
+
+0.9880375266075134
+/debian-binnacle-icse2020/138253578.Dockerfile/5/0
+['RUN', 'qmake', '-recursive', 'main.pro', 'CONFIG+', '=', 'no-client', 'grpc', 'NL']
+
+0.9876753091812134
+/debian-binnacle-icse2020/254681033.Dockerfile/24/2
+['AND', 'go', 'install', '-tags', 'experimental', '-ldflags', 'SUBLEFT', 'LD_FLAGS}', 'github.com/hyperledger/fabric/common/tools/configtxgen', 'BACK', 'NL']
+
+0.9870817065238953
+/debian-binnacle-icse2020/382070009.Dockerfile/122/0
+['ARG', 'FFMPEG_REPO', '=', 'https://github.com/FFmpeg/FFmpeg/archive/', 'SUBLEFT', 'FFMPEG_VER}.tar.gz', 'NL']
+
+0.9869294166564941
+/debian-binnacle-icse2020/382070355.Dockerfile/13/0
+['ARG', 'YASM_REPO', '=', 'https://www.tortall.net/projects/yasm/releases/yasm-', 'SUBLEFT', 'YASM_VER}.tar.gz', 'NL']
+
+0.9867845177650452
+/debian-binnacle-icse2020/183977807.Dockerfile/19/2
+['printf', 'BACKnBACKnnBACKnyBACKnnBACKnnBACKnnBACKnyBACKnnBACKnnBACKnnBACKnnBACKnnBACKnnBACKnBACKnyBACKn%sBACKnBACKnBACKn', 'SUBLEFT', 'ANDROID_HOME}|./configure', 'NL']
+
+0.9866907000541687
+/debian-binnacle-icse2020/362383298.Dockerfile/4/0
+['LABEL', 'build_version', '=', 'Linuxserver.io', 'version:-', 'SUBLEFT', 'VERSION}', 'Build-date:-', 'SUBLEFT', 'BUILD_DATE}', 'NL']
+
+0.9862966537475586
+/debian-binnacle-icse2020/358673018.Dockerfile/2/0
+['LABEL', 'software', '=', 'bioconductor-annotate', 'BACK', 'NL']
+
+0.9859862923622131
+/debian-binnacle-icse2020/465445331.Dockerfile/75/0
+['ENV', 'TENSORRT_SERVER_USER', '=', 'tensorrt-server', 'NL']
+python3 1209.py  29.99s user 9.94s system 101% cpu 39.382 total
+
+
+
+===============================================================
+['RUN', 'apt-get', 'update', 'AND', 'apt-get', 'install', '-y', 'build-essential', 'AND', 'BACK', 'NL']
+===============================================================
+
+0.9787436127662659
+/debian-binnacle-icse2020/345372986.Dockerfile/2/5
+['RUN', 'apt-get', 'update', 'AND', 'apt-get', 'install', '-y', '--no-install-recommends', 'BACK', 'NL', 'pkg-config', 'BACK', 'NL']
+
+0.9718037843704224
+/debian-binnacle-icse2020/245865571.Dockerfile/1/0
+['RUN', 'apt-get', 'update', 'AND', 'apt-get', 'install', '-y', 'BACK', 'NL']
+
+0.9661384224891663
+/debian-binnacle-icse2020/262770895.Dockerfile/5/1
+['RUN', 'apt-get', 'update', 'AND', 'apt-get', 'install', '-y', '--no-install-recommends', 'BACK', 'NL', 'g++', 'BACK', 'NL']
+
+0.9654870629310608
+/debian-binnacle-icse2020/345373646.Dockerfile/2/5
+['RUN', 'apt-get', 'update', 'AND', 'apt-get', 'install', '-y', '--no-install-recommends', 'BACK', 'NL', 'pkg-config', 'BACK', 'NL']
+
+0.963823139667511
+/debian-binnacle-icse2020/203069221.Dockerfile/1/12
+['--no-install-recommends', 'BACK', 'NL']
+
+0.9637618064880371
+/debian-binnacle-icse2020/246541755.Dockerfile/3/0
+['RUN', 'apt-get', 'install', '-y', '--no-install-recommends', 'make', 'binutils', 'BACK', 'NL']
+
+0.9636334180831909
+/debian-binnacle-icse2020/192392840.Dockerfile/4/2
+['RUN', 'NL', 'NL', 'apt-get', 'update', '-qq', 'AND', 'BACK', 'NL', 'apt-get', '-y', '--no-install-recommends', '--no-install-suggests', 'install', 'host', 'socat', 'unzip', 'ca-certificates', 'wget', 'curl', 'python-software-properties', 'AND', 'BACK', 'NL']
+
+0.9628423452377319
+/debian-binnacle-icse2020/168831614.Dockerfile/3/7
+['RUN', 'AND', 'apt-get', 'install', '-y', '--no-install-recommends', 'BACK', 'NL', 'ca-certificates', 'BACK', 'NL']
+
+0.9627423882484436
+/debian-binnacle-icse2020/343504962.Dockerfile/1/3
+['RUN', 'apt-get', 'update', 'AND', 'apt-get', 'install', '-y', '--no-install-recommends', 'BACK', 'NL', 'libcurl4-openssl-dev', 'BACK', 'NL']
+
+0.9626376032829285
+/debian-binnacle-icse2020/456983307.Dockerfile/3/2
+['AND', 'apt-get', 'update', '-y', 'AND', 'apt-get', 'install', '-y', 'software-properties-common', 'BACK', 'NL']
+python3 1209.py  30.75s user 12.38s system 95% cpu 44.941 total
