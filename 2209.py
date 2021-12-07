@@ -39,7 +39,7 @@ def tagging(file_path, layers):
 def doc2vecs():
     file_paths = [comp for comp in glob.glob(DEBIAN_BINNACLE_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
     training_data = {}
-    for file_path in file_paths[:20]:
+    for file_path in file_paths[:10]:
         print(file_path)
         df = Dockerfile(file_path)
         layers = df.layers
