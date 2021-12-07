@@ -16,10 +16,10 @@ class D2V():
         
         def toJson(training_data):
             objs = {}
-            for td_key, td_value in training_data:
+            for td_key, td_value in training_data.items():
                 td_hash = toHash(td_key)
                 data = {
-                    "location": to_key,
+                    "location": td_key,
                     "token": td_value 
                 }
                 objs[toHash] = data
