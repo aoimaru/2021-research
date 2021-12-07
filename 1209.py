@@ -59,6 +59,10 @@ def doc2vecs_test():
         return comps
     
     comps = openJson()
+    targets = comps[:100]
+    for key, value in targets.items():
+        print(key)
+        print(value["location"], value["token"])
 
     code = toHash("/python/3.6/alpine3.14/Dockerfile/6/42")
     model = Doc2Vec.load("libs/D2Vs/new-2021-12-07 19:22:03.146937.model")
