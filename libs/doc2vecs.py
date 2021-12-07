@@ -15,8 +15,8 @@ class D2V():
             dm=1,
             window=5
         )
-        model.save("./libs/D2Vs/{}-{}".format(name, current_time))
-        
+        model.save("./libs/D2Vs/{}-{}.model".format(name, current_time))
+
 
 
 
