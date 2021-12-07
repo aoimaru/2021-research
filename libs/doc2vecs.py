@@ -4,8 +4,9 @@ from gensim.models.doc2vec import TaggedDocument
 import hashlib
 import datetime
 import json
+import pprint
 
-JSON_FILE_PATH = "./JSON/"
+JSON_FILE_PATH = "./libs/JSON/"
 
 class D2V():
     @staticmethod
@@ -17,19 +18,20 @@ class D2V():
         def toJson(training_data):
             objs = {}
             for td_key, td_value in training_data.items():
-                td_hash = toHash(td_key)
+                td_hash = hashlib.sha256(td_key.encode()).hexdigest()
+                print(td_hash)
                 data = {
                     "location": td_key,
                     "token": td_value 
                 }
-                objs[toHash] = data
-
+                objs[td_hash] = data
             current_time = str(datetime.datetime.now())
             file_path = JSON_FILE_PATH+"{}.json".format(current_time)
             try:
                 with open(file_path, mode="w") as f:
-                    json.dumps(objs, f, ensure_ascii=False, indent=4)
+                    json.dump(objs, f, ensure_ascii=False, indent=4)
             except Exception as e:
+                print(e)
                 return False
             else:
                 return True
@@ -44,7 +46,7 @@ class D2V():
         )
         model.save("./libs/D2Vs/{}-{}.model".format(name, current_time))
         Flag = toJson(training_data)
-
+        print(Flag)
 
 
 
