@@ -65,6 +65,8 @@ class Structure(object):
 
         tag = 0
         stacks = []
+        if not comps:
+            continue
         root = comps.pop(0)
         stacks.append(root[1])
         for comp in comps:
