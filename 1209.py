@@ -36,13 +36,12 @@ def tagging(file_path, layers):
 def doc2vecs():
     file_paths = [comp for comp in glob.glob(PYTHON_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
     data = []
-    for file_path in file_paths[:100]:
+    for file_path in file_paths:
         primitive = Primitive(file_path)
         data = primitive.data
         layers = Structure.toLayer(data, file_path)
         tagged_data = tagging(file_path, layers)
-        for key, value in tagged_data.items():
-            print(key ,value)
+        D2V.do(tagged_data, name="new")
             
 
 

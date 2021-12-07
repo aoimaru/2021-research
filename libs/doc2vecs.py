@@ -5,7 +5,18 @@ import hashlib
 import datetime
 
 class D2V():
-    
+    @staticmethod
+    def do(tagged_data, name="default"):
+        current_time = str(datetime.datetime.now())
+        documents = [TaggedDocument(words=token, tags=[tag_name]) for tag_name, token in tagged_data.items()]
+        model = Doc2Vec(
+            documents=documents, 
+            min_count=1, 
+            dm=1,
+            window=5
+        )
+        model.save("./libs/D2Vs/{}-{}".format(name, current_time))
+        
 
 
 
