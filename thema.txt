@@ -1,1 +1,3 @@
 
+True
+python3 1209.py  1317.54s user 145.61s system 104% cpu 23:24.34 total
