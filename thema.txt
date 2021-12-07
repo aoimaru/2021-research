@@ -190,3 +190,206 @@ nakamurahekikai@nakamurahekikainoMacBook-Pro-2 2021-research % python3 1209.py
 0.8271331787109375
 /debian-binnacle-icse2020/477654243.Dockerfile/2/112
 ['BACK', 'NL']
+
+
+
+nakamurahekikai@nakamurahekikainoMacBook-Pro-2 2021-research % cat ./debian-binnacle-icse2020/277200328.Dockerfile
+# ------------------------------------------------------------------------------
+#               NOTE: THIS DOCKERFILE IS GENERATED VIA "update.sh"
+#
+#                       PLEASE DO NOT EDIT IT DIRECTLY.
+# ------------------------------------------------------------------------------
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+FROM debian:stretch
+
+ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends curl ca-certificates locales \
+    && echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
+    && locale-gen en_US.UTF-8 \
+    && rm -rf /var/lib/apt/lists/*
+
+ENV JAVA_VERSION jdk8u212-b04_openj9-0.14.2
+
+RUN set -eux; \
+    ARCH="$(dpkg --print-architecture)"; \
+    case "${ARCH}" in \
+       amd64|x86_64) \
+         ESUM='b0c0aac53694b2ada3a9fdcbb3e9461257a54b50b4573d786d7b0778d6356805'; \
+         BINARY_URL='https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u212-b04_openj9-0.14.2/OpenJDK8U-jre_x64_linux_openj9_8u212b04_openj9-0.14.2.tar.gz'; \
+         ;; \
+       s390x) \
+         ESUM='9200e492e5e468b69e84c8a9e91b63c4819133409f67ef7ba0f978795792d66d'; \
+         BINARY_URL='https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u212-b04_openj9-0.14.2/OpenJDK8U-jre_s390x_linux_openj9_8u212b04_openj9-0.14.2.tar.gz'; \
+         ;; \
+       ppc64el|ppc64le) \
+         ESUM='9d886582a465da28d9ec2279c933adf688698c67002a1a99070fbb575878282f'; \
+         BINARY_URL='https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u212-b04_openj9-0.14.2/OpenJDK8U-jre_ppc64le_linux_openj9_8u212b04_openj9-0.14.2.tar.gz'; \
+         ;; \
+       *) \
+         echo "Unsupported arch: ${ARCH}"; \
+         exit 1; \
+         ;; \
+    esac; \
+    curl -LfsSo /tmp/openjdk.tar.gz ${BINARY_URL}; \
+    echo "${ESUM} */tmp/openjdk.tar.gz" | sha256sum -c -; \
+    mkdir -p /opt/java/openjdk; \
+    cd /opt/java/openjdk; \
+    tar -xf /tmp/openjdk.tar.gz --strip-components=1; \
+    rm -rf /tmp/openjdk.tar.gz;
+
+ENV JAVA_HOME=/opt/java/openjdk \
+    PATH="/opt/java/openjdk/bin:$PATH"
+ENV JAVA_TOOL_OPTIONS="-XX:+IgnoreUnrecognizedVMOptions -XX:+UseContainerSupport -XX:+IdleTuningCompactOnIdle -XX:+IdleTuningGcOnIdle"
+nakamurahekikai@nakamurahekikainoMacBook-Pro-2 2021-research %
+nakamurahekikai@nakamurahekikainoMacBook-Pro-2 2021-research %
+nakamurahekikai@nakamurahekikainoMacBook-Pro-2 2021-research % python3 1209.py
+===============================================================
+['AND', 'echo', 'en_US.UTF-8', 'UTF-8', '>>', '/etc/locale.gen', 'BACK', 'NL']
+===============================================================
+
+0.7586984634399414
+/debian-binnacle-icse2020/291179006.Dockerfile/5/10
+['AND', 'sudo', 'mv', 'chromedriver', '/usr/local/bin/chromedriver', 'BACK', 'NL']
+
+0.7464718818664551
+/debian-binnacle-icse2020/269380198.Dockerfile/6/8
+['mkdir', 'build', 'AND', 'cd', 'build', 'AND', 'BACK', 'NL']
+
+0.7461971044540405
+/debian-binnacle-icse2020/266682512.Dockerfile/3/23
+['RUN', 'docker-php-ext-enable', 'imagick', 'AND', 'BACK', 'NL']
+
+0.7446274757385254
+/debian-binnacle-icse2020/291178977.Dockerfile/10/16
+['AND', 'rm', '-rf', '/tmp/docker', '/tmp/docker.tgz', 'BACK', 'NL']
+
+0.7445729374885559
+/debian-binnacle-icse2020/291686068.Dockerfile/7/4
+['AND', 'sudo', 'mv', '/tmp/entrypoint', '/docker-entrypoint.sh', 'NL']
+
+0.7405299544334412
+/debian-binnacle-icse2020/345364333.Dockerfile/3/7
+['RUN', 'AND', 'do', 'BACK', 'NL', 'gpg', '--keyserver', 'ha.pool.sks-keyservers.net', '--recv-keys', '$key', 'AND', 'BACK', 'NL']
+
+0.740206241607666
+/debian-binnacle-icse2020/320100338.Dockerfile/2/7
+['RUN', 'AND', 'rm', '-rf', '/var/lib/apt/lists/*', 'NL']
+
+0.7373757362365723
+/debian-binnacle-icse2020/345383272.Dockerfile/3/15
+['RUN', 'AND', 'curl', '-fSLO', '--compressed', 'https://yarnpkg.com/downloads/$YARN_VERSION/yarn-v$YARN_VERSION.tar.gz', 'BACK', 'NL']
+
+0.7347840070724487
+/debian-binnacle-icse2020/291685426.Dockerfile/8/10
+['AND', 'ls', '-lha', '/tmp/docker.tgz', 'BACK', 'NL']
+
+0.7288998365402222
+/debian-binnacle-icse2020/382070194.Dockerfile/8/6
+['make', '-j8', 'AND', 'BACK', 'NL']
+nakamurahekikai@nakamurahekikainoMacBook-Pro-2 2021-research % python3 1209.py
+===============================================================
+['AND', 'locale-gen', 'en_US.UTF-8', 'BACK', 'NL']
+===============================================================
+
+0.8863767981529236
+/debian-binnacle-icse2020/345358240.Dockerfile/6/0
+['ENV', 'PATH', '$GOPATH/bin:/usr/local/go/bin:$PATH', 'NL']
+
+0.8660442233085632
+/debian-binnacle-icse2020/407994048.Dockerfile/8/0
+['RUN', 'echo', 'export', 'VISIBLE', '=', 'now', '>>', '/etc/profile', 'NL']
+
+0.8639593124389648
+/debian-binnacle-icse2020/327886509.Dockerfile/3/0
+['RUN', 'echo', 'deb', 'http://debian.datastax.com/community', 'stable', 'main', '>', '/etc/apt/sources.list.d/datastax.list', 'NL']
+
+0.8623228073120117
+/debian-binnacle-icse2020/254831052.Dockerfile/5/0
+['RUN', 'sed', '-i', '/^#', 'deb.*universe/', 's/^#', '//', '/etc/apt/sources.list', 'NL']
+
+0.8594635725021362
+/debian-binnacle-icse2020/291685116.Dockerfile/1/0
+['RUN', 'echo', 'APT::Get::Assume-Yes', 'true', 'AND', '>', '/etc/apt/apt.conf.d/90circleci', 'BACK', 'NL']
+
+0.8591233491897583
+/debian-binnacle-icse2020/240655606.Dockerfile/1/2
+['echo', 'deb', 'http://mirrors.163.com/debian/', 'jessie', 'main', 'non-free', 'contrib', '>/etc/apt/sources.list', 'AND', 'BACK', 'NL']
+
+0.8567285537719727
+/debian-binnacle-icse2020/207059352.Dockerfile/7/10
+['AND', 'echo', 'deb', 'http://downloads.haskell.org/debian', 'stretch', 'main', '>', '/etc/apt/sources.list.d/ghc.list', 'BACK', 'NL']
+
+0.8536392450332642
+/debian-binnacle-icse2020/351156703.Dockerfile/18/0
+['ADD', 'run.sh', '/run.sh', 'NL']
+
+0.8535151481628418
+/debian-binnacle-icse2020/166491182.Dockerfile/4/0
+['RUN', 'service', 'postgresql', 'start', 'NL']
+
+0.8508226275444031
+/debian-binnacle-icse2020/235543349.Dockerfile/18/66
+['AND', 'bsdtar', '-xJf', 'node-v$NODE_VERSION-linux-$ARCH.tar.xz', '-C', '/usr/local', '--strip-components', '=', '1', '--no-same-owner', 'BACK', 'NL']
+nakamurahekikai@nakamurahekikainoMacBook-Pro-2 2021-research %
+nakamurahekikai@nakamurahekikainoMacBook-Pro-2 2021-research %
+nakamurahekikai@nakamurahekikainoMacBook-Pro-2 2021-research %
+nakamurahekikai@nakamurahekikainoMacBook-Pro-2 2021-research % python3 1209.py
+===============================================================
+['AND', 'rm', '-rf', '/var/lib/apt/lists/*', 'NL']
+===============================================================
+
+0.9457821846008301
+/debian-binnacle-icse2020/217405199.Dockerfile/20/4
+['rm', '-rf', '/root/.cache', 'NL']
+
+0.9374397993087769
+/debian-binnacle-icse2020/213735452.Dockerfile/3/6
+['AND', 'node-gyp', 'configure', '||', 'echo', 'NL']
+
+0.9347118139266968
+/debian-binnacle-icse2020/200415707.Dockerfile/2/40
+['rm', '-rf', '/var/lib/apt/lists/*', 'NL']
+
+0.9344478845596313
+/debian-binnacle-icse2020/435489648.Dockerfile/3/16
+['rm', '-rf', '/var/lib/apt/lists/*', 'NL']
+
+0.9331127405166626
+/debian-binnacle-icse2020/291685453.Dockerfile/5/0
+['RUN', 'curl', '--silent', '--show-error', '--location', '--fail', '--retry', '3', '--output', '/tmp/google-chrome-stable_current_amd64.deb', 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb', 'BACK', 'NL']
+
+0.9275807738304138
+/debian-binnacle-icse2020/423817539.Dockerfile/10/4
+['dpkg', '-i', 'nomachine.deb', 'AND', 'BACK', 'NL']
+
+0.9273989200592041
+/debian-binnacle-icse2020/291685883.Dockerfile/3/8
+['AND', 'rm', '-rf', '/var/lib/apt/lists/*', 'BACK', 'NL']
+
+0.9251863956451416
+/debian-binnacle-icse2020/219471589.Dockerfile/2/20
+['AND', 'rm', '-rf', '/var/lib/apt/lists/*', 'NL']
+
+0.9245800971984863
+/debian-binnacle-icse2020/476840987.Dockerfile/2/12
+['rm', '-rf', '/var/lib/apt/lists/*', 'NL']
+
+0.9244211316108704
+/debian-binnacle-icse2020/249972046.Dockerfile/1/10
+['AND', 'rm', '-rf', '/var/lib/apt/lists/*', 'NL']
+nakamurahekikai@nakamurahekikainoMacBook-Pro-2 2021-research %
