@@ -94,3 +94,50 @@ python3 1209.py  1317.54s user 145.61s system 104% cpu 23:24.34 total
 0.7326422333717346
 /debian-binnacle-icse2020/345373768.Dockerfile/3/8
 ['RUN', 'AND', 'tar', '-xzf', 'go$GO_VERSION.linux-arm64.tar.gz', '-C', '/usr/local/go', '--strip-components', '=', '1', 'BACK', 'NL']
+
+
+
+
+===============================================================
+['RUN', 'apt-get', 'update', 'AND', 'apt-get', 'install', '-y', 'make', 'autoconf', 'libtool', 'pkg-config', 'wget', 'NL']
+===============================================================
+
+0.8993604183197021
+/debian-binnacle-icse2020/352387534.Dockerfile/2/0
+['RUN', 'apt-get', 'update', '-y', 'AND', 'apt-get', 'install', '-y', 'git', 'make', 'mercurial', 'wget', 'golang-1.9', 'bashBACK', 'NL']
+
+0.8925268650054932
+/debian-binnacle-icse2020/197245063.Dockerfile/13/9
+['wget', 'make', 'AND', 'make', 'install', 'NL']
+
+0.8900939226150513
+/debian-binnacle-icse2020/168831615.Dockerfile/3/6
+['RUN', 'AND', 'apt-get', 'install', '-y', '--no-install-recommends', 'BACK', 'NL', 'wget', 'BACK', 'NL']
+
+0.8864468336105347
+/debian-binnacle-icse2020/160556934.Dockerfile/6/0
+['RUN', 'yum', 'install', '-y', 'wget', 'tar', 'vi', 'bzip2', 'NL']
+
+0.8845456838607788
+/debian-binnacle-icse2020/173586384.Dockerfile/4/11
+['RUN', 'AND', 'apt-get', 'update', 'AND', 'apt-get', 'install', '-y', '--no-install-recommends', 'BACK', 'NL', 'wget', 'BACK', 'NL']
+
+0.8812729120254517
+/debian-binnacle-icse2020/339995523.Dockerfile/2/0
+['RUN', 'apt-get', 'update', 'AND', 'apt-get', 'install', '-y', 'wget', 'make', 'gcc', 'NL']
+
+0.8810478448867798
+/debian-binnacle-icse2020/168269426.Dockerfile/1/0
+['RUN', 'DEBIAN_FRONTEND', '=', 'noninteractive', 'apt-get', 'update', 'AND', 'apt-get', 'install', '-y', 'wget', 'AND', 'BACK', 'NL']
+
+0.8793404698371887
+/debian-binnacle-icse2020/345355519.Dockerfile/6/3
+['RUN', 'apt-get', 'update', 'AND', 'apt-get', 'install', '-y', '--no-install-recommends', 'BACK', 'NL', 'wget', 'BACK', 'NL']
+
+0.878290057182312
+/debian-binnacle-icse2020/395127699.Dockerfile/2/0
+['RUN', 'apt-get', '-y', 'install', 'wget', 'NL']
+
+0.877443790435791
+/debian-binnacle-icse2020/141699067.Dockerfile/1/0
+['RUN', 'apt-get', 'update', 'AND', 'apt-get', 'install', 'wget', '-y', 'NL']
