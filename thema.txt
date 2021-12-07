@@ -592,3 +592,95 @@ python3 2209.py  503.55s user 35.62s system 109% cpu 8:11.89 total
 0.985825777053833
 /debian-binnacle-icse2020/353565298.Dockerfile/5
 ['RUN', 'apt-get', 'update', 'AND', 'apt-get', 'install', '-y', '--no-install-recommends', 'ca-certificates', 'wget', 'sudo', 'build-essential', 'AND', 'apt-get', '-y', 'autoremove', 'AND', 'rm', '-rf', '/var/lib/apt/lists/*']
+
+
+===============================================================
+['RUN', 'tar', 'xfv', 'libmpdclient-master.tar.gz', '-C', '/']
+===============================================================
+
+0.9883198738098145
+/debian-binnacle-icse2020/436349309.Dockerfile/5
+['RUN', 'tar', '-xzf', 'graalvm-ce-linux-amd64-19.0.2.tar.gz']
+
+0.9820870757102966
+/debian-binnacle-icse2020/182339938.Dockerfile/6
+['RUN', 'tar', 'zxf', '/tmp/s6-overlay-amd64.tar.gz', '-C', '/', 'AND', '$_clean']
+
+0.9803353548049927
+/debian-binnacle-icse2020/182340245.Dockerfile/7
+['RUN', 'tar', 'zxf', '/tmp/s6-overlay-amd64.tar.gz', '-C', '/', 'AND', '$_clean']
+
+0.9801157712936401
+/debian-binnacle-icse2020/338690355.Dockerfile/16
+['RUN', 'tar', '-zxvf', 'curl-7.45.0.tar.gz']
+
+0.9797053933143616
+/debian-binnacle-icse2020/252793921.Dockerfile/7
+['RUN', 'tar', '-C', '/usr/local', '-xf', 'go1.8.3.linux-amd64.tar.gz']
+
+0.9795119762420654
+/debian-binnacle-icse2020/359938216.Dockerfile/4
+['RUN', 'curl', '-sL', 'https://github.com/just-containers/s6-overlay/releases/download/v1.18.1.5/s6-overlay-amd64.tar.gz', '|', 'tar', 'xz', '-C', '/']
+
+0.9794396162033081
+/debian-binnacle-icse2020/238687448.Dockerfile/16
+['RUN', 'tar', '-zxvf', 'curl-7.45.0.tar.gz']
+
+0.9792513847351074
+/debian-binnacle-icse2020/262588771.Dockerfile/16
+['RUN', 'tar', '-zxvf', 'curl-7.45.0.tar.gz']
+
+0.97893226146698
+/debian-binnacle-icse2020/185472322.Dockerfile/13
+['run', 'tar', 'zxf', '/root/gitblit.tar.gz', '-C', '/opt/gitblit-tmp']
+
+0.978645920753479
+/debian-binnacle-icse2020/244038043.Dockerfile/21
+['RUN', 'tar', '-C', '/', '-xzf', '$GOFILENAME']
+python3 2209.py  14.10s user 3.62s system 107% cpu 16.485 total
+
+
+===============================================================
+['RUN', 'sed', '-i', '/^#', 'deb.*multiverse/', 's/^#', '//', '/etc/apt/sources.list']
+===============================================================
+
+0.9878721237182617
+/debian-binnacle-icse2020/254830931.Dockerfile/4
+['RUN', 'sed', '-i', '/^#', 'deb.*universe/', 's/^#', '//', '/etc/apt/sources.list']
+
+0.9877837300300598
+/debian-binnacle-icse2020/254831022.Dockerfile/5
+['RUN', 'sed', '-i', '/^#', 'deb.*universe/', 's/^#', '//', '/etc/apt/sources.list']
+
+0.9867337942123413
+/debian-binnacle-icse2020/442718002.Dockerfile/13
+['RUN', 'sed', '-i', 's#http://archive.ubuntu.com/#http://tw.archive.ubuntu.com/#', '/etc/apt/sources.list', 'AND']
+
+0.9860036373138428
+/debian-binnacle-icse2020/361981698.Dockerfile/2
+['RUN', 'sed', '-i', 's/httpredir.debian.org/$APT_MIRROR/g', '/etc/apt/sources.list']
+
+0.9855493307113647
+/debian-binnacle-icse2020/252776636.Dockerfile/5
+['RUN', 'sed', '-i', 's/^#\\s*\\\\(deb.*universe\\\\)$/\\1/g', '/etc/apt/sources.list']
+
+0.98508620262146
+/debian-binnacle-icse2020/254831133.Dockerfile/4
+['RUN', 'sed', '-i', '/^#', 'deb.*universe/', 's/^#', '//', '/etc/apt/sources.list']
+
+0.9845727682113647
+/debian-binnacle-icse2020/255678333.Dockerfile/2
+['RUN', 'sed', '-ri', 's/(httpredir|deb).debian.org/$APT_MIRROR/g', '/etc/apt/sources.list']
+
+0.9836503863334656
+/debian-binnacle-icse2020/284480383.Dockerfile/11
+['RUN', 'sed', '-i', 's/universe/universe', 'multiverse/', '/etc/apt/sources.list']
+
+0.9834886789321899
+/debian-binnacle-icse2020/278288314.Dockerfile/1
+['RUN', 'sed', 's/main$/main', 'universe/', '-i', '/etc/apt/sources.list']
+
+0.9833093881607056
+/debian-binnacle-icse2020/141699057.Dockerfile/11
+['RUN', 'sed', '-i', 's/universe/universe', 'multiverse/', '/etc/apt/sources.list']
+python3 2209.py  14.14s user 3.66s system 107% cpu 16.550 total
