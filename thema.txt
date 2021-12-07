@@ -393,3 +393,54 @@ nakamurahekikai@nakamurahekikainoMacBook-Pro-2 2021-research % python3 1209.py
 /debian-binnacle-icse2020/249972046.Dockerfile/1/10
 ['AND', 'rm', '-rf', '/var/lib/apt/lists/*', 'NL']
 nakamurahekikai@nakamurahekikainoMacBook-Pro-2 2021-research %
+
+
+
+
+
+
+結果の追加
+===============================================================
+['RUN', 'apt-get', 'update', 'AND', 'apt-get', 'install', '-y', '--no-install-recommends', 'curl', 'ca-certificates', 'locales', 'AND', 'echo', 'en_US.UTF-8', 'UTF-8', '>>', '/etc/locale.gen', 'AND', 'locale-gen', 'en_US.UTF-8', 'AND', 'rm', '-rf', '/var/lib/apt/lists/*']
+===============================================================
+
+0.7115329504013062
+/debian-binnacle-icse2020/176079654.Dockerfile/5
+['RUN', '/bin/bash', '-l', '-c', 'echo', '.', '/etc/profile.d/rvm.sh', '>>', '~/.bashrc']
+
+0.7110490798950195
+/debian-binnacle-icse2020/291178795.Dockerfile/6
+['RUN', 'if', 'grep', '-q', 'Debian', '/etc/os-release', 'AND', 'grep', '-q', 'jessie', '/etc/os-release', 'AND', 'then', 'NL', 'rm', '/etc/apt/sources.list', 'AND', 'echo', 'deb', 'http://archive.debian.org/debian/', 'jessie', 'main', '>>', '/etc/apt/sources.list', 'AND', 'echo', 'deb', 'http://security.debian.org/debian-security', 'jessie/updates', 'main', '>>', '/etc/apt/sources.list', 'NL', 'AND', 'fi']
+
+0.7053271532058716
+/debian-binnacle-icse2020/202884908.Dockerfile/5
+['RUN', 'groupadd', '-g', '1001', 'ishocon', 'AND', 'useradd', '-g', 'ishocon', '-G', 'sudo', '-m', '-s', '/bin/bash', 'ishocon', 'AND', 'echo', 'ishocon:ishocon', '|', 'chpasswd']
+
+0.6948679685592651
+/debian-binnacle-icse2020/161400117.Dockerfile/67
+['RUN', 'echo', 'chmod', '755', '/usr/bin/tokenpayd">>', 'SUBLEFT', 'install_name}/', 'SUBLEFT', 'fname_webinstall', 'SUBRIGHT']
+
+0.6943366527557373
+/debian-binnacle-icse2020/275745583.Dockerfile/15
+['RUN', 'add-apt-repository', 'deb', '[arch', '=', 'amd64', 'SUBRIGHT', 'https://download.docker.com/linux/$(.', '/etc/os-release', 'AND', 'echo', '$ID', 'SUBRIGHT', 'SUBLEFT', 'lsb_release', '-cs', 'SUBRIGHT', 'stable']
+
+0.6879799365997314
+/debian-binnacle-icse2020/291179636.Dockerfile/1
+['RUN', 'echo', 'APT::Get::Assume-Yes', 'true', 'AND', '>', '/etc/apt/apt.conf.d/90circleci', 'AND', 'echo', 'DPkg::Options', '--force-confnew', 'AND', '>>', '/etc/apt/apt.conf.d/90circleci']
+
+0.6873780488967896
+/debian-binnacle-icse2020/277200195.Dockerfile/2
+['RUN', 'apt-get', 'update', 'AND', 'apt-get', 'install', '-y', '--no-install-recommends', 'curl', 'ca-certificates', 'locales', 'AND', 'echo', 'en_US.UTF-8', 'UTF-8', '>>', '/etc/locale.gen', 'AND', 'locale-gen', 'en_US.UTF-8', 'AND', 'rm', '-rf', '/var/lib/apt/lists/*']
+
+0.681452214717865
+/debian-binnacle-icse2020/254112043.Dockerfile/16
+['RUN', 'echo', 'export', 'LD_LIBRARY_PATH', '=', '$LD_LIBRARY_PATH:/home/programs/mosek/8/tools/platform/$MOSEKPLATFORM/bin', '>>', '~/.bashrc']
+
+0.674297571182251
+/debian-binnacle-icse2020/238729589.Dockerfile/1
+['ENV', 'user', 'echo']
+
+0.6709449291229248
+/debian-binnacle-icse2020/322654100.Dockerfile/13
+['RUN', 'echo', '>>', '.bashrc', 'AND', 'echo', 'source', '/home/aster/aster/etc/codeaster/profile.sh', '>>', '.bashrc', 'AND', 'echo', 'cat', '~/WELCOME', '>>', '.bashrc', 'AND', 'echo', 'echo', '>>', '.bashrc']
+nakamurahekikai@nakamurahekikainoMacBook-Pro-2 2021-research %

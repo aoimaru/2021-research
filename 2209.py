@@ -46,6 +46,9 @@ def doc2vecs():
     D2V.do(training_data, name="NAIVE_DEBIAN_BINNACLE_PROJECT")
 
 def doc2vecs_test():
+    def toHash(word):
+        hash_object = hashlib.sha256(word.encode()).hexdigest()
+        return hash_object
     path = "NAIVE_DEBIAN_BINNACLE_PROJECT-2021-12-08 01:51:37.245101.model"
     def openJson():
         OPEN_JSON_PATH = "./libs/JSON/NAIVE_DEBIAN_BINNACLE_PROJECT:2021-12-08 01:59:00.018952.json"
