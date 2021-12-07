@@ -20,15 +20,18 @@ BINNACLE_PROJECT = "./binnacle-icse2020/**"
 DEBIAN_BINNACLE_PROJECT = "./debian-binnacle-icse2020/**"
 
 def tagging(file_path, layers):
+    DEL = 1
+    file_path = file_path[DEL:]
     res = {}
     for hg, layer in enumerate(layers):
         responses = Structure.toStack(layer)
         for wd, response in enumerate(responses):
             response = Structure.toToken(response)
             response = Structure.Equal(response)
-            print(response)
+            tag_name = "{}/{}/{}".format(file_path, str(hg), str(wd))
+            res[tag_name] = response
+    return res
 
-            
 
 def doc2vecs():
     file_paths = [comp for comp in glob.glob(PYTHON_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
@@ -37,10 +40,9 @@ def doc2vecs():
         primitive = Primitive(file_path)
         data = primitive.data
         layers = Structure.toLayer(data, file_path)
-        
-        tagging(file_path, layers)
-        # for key, value in tagged_data.items():
-        #     print(key ,value)
+        tagged_data = tagging(file_path, layers)
+        for key, value in tagged_data.items():
+            print(key ,value)
             
 
 
