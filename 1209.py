@@ -37,7 +37,7 @@ def tagging(file_path, layers):
 
 
 def doc2vecs():
-    file_paths = [comp for comp in glob.glob(PYTHON_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
+    file_paths = [comp for comp in glob.glob(DEBIAN_BINNACLE_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
     training_data = {}
     for file_path in file_paths:
         primitive = Primitive(file_path)
@@ -45,7 +45,7 @@ def doc2vecs():
         layers = Structure.toLayer(data, file_path)
         tagged_data = tagging(file_path, layers)
         training_data.update(tagged_data)
-    D2V.do(training_data, name="PYTHON_PROJECT")
+    D2V.do(training_data, name="DEBIAN_BINNACLE_PROJECT")
 
 def doc2vecs_test():
     def toHash(word):
