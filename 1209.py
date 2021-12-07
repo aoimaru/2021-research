@@ -53,7 +53,7 @@ def doc2vecs_test():
         return hash_object
 
     def openJson():
-        OPEN_JSON_PATH = "./libs/JSON/DEBIAN_BINNACLE_PROJECT_DM_0:2021-12-08 03:00:25.329390.json"
+        OPEN_JSON_PATH = "./libs/JSON/DEBIAN_BINNACLE_PROJECT_DM_0:2021-12-08 03:24:02.123068.json"
         with open(OPEN_JSON_PATH, mode="r") as f:
             comps = json.load(f)
         return comps
@@ -66,7 +66,7 @@ def doc2vecs_test():
     #     print(value["location"], value["token"])
 
     code = toHash("/debian-binnacle-icse2020/313364909.Dockerfile/29/0")
-    model = Doc2Vec.load("libs/D2Vs/DEBIAN_BINNACLE_PROJECT_DM_0-2021-12-08 02:43:06.625532.model")
+    model = Doc2Vec.load("libs/D2Vs/DEBIAN_BINNACLE_PROJECT_DM_0-2021-12-08 03:07:11.276785.model")
     sim_items = model.docvecs.doctags
     # sim_items = model.docvecs.similarity("dd5320931121b545c395d98dd14add71a446b3584e19768fdabadd9fa90ba85b", "6a64aec3301521f1d1492da8c05d830f5f16950c90de4264c6cf32a1a53dd909")
     sim_items = model.docvecs.most_similar(code)
