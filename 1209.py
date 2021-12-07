@@ -23,7 +23,9 @@ def tagging(file_path, layers):
     res = {}
     for hg, layer in enumerate(layers):
         responses = Structure.toStack(layer)
-        for response in responses:
+        for wd, response in enumerate(responses):
+            response = Structure.toToken(response)
+            response = Structure.Equal(response)
             print(response)
 
             
