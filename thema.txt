@@ -141,3 +141,52 @@ python3 1209.py  1317.54s user 145.61s system 104% cpu 23:24.34 total
 0.877443790435791
 /debian-binnacle-icse2020/141699067.Dockerfile/1/0
 ['RUN', 'apt-get', 'update', 'AND', 'apt-get', 'install', 'wget', '-y', 'NL']
+
+
+
+
+
+nakamurahekikai@nakamurahekikainoMacBook-Pro-2 2021-research % python3 1209.py
+===============================================================
+['RUN', 'git', 'clone', 'https://git.xiph.org/speex.git', 'speex', 'NL']
+===============================================================
+
+0.8827059268951416
+/debian-binnacle-icse2020/291180732.Dockerfile/2/0
+['ENV', 'DEBIAN_FRONTEND', '=', 'noninteractive', 'NL']
+
+0.8539395928382874
+/debian-binnacle-icse2020/200154495.Dockerfile/2/0
+['ENV', 'DEBIAN_FRONTEND', 'noninteractive', 'NL']
+
+0.8518336415290833
+/debian-binnacle-icse2020/169653275.Dockerfile/2/0
+['ENV', 'DEBIAN_FRONTEND', 'noninteractive', 'NL']
+
+0.8482622504234314
+/debian-binnacle-icse2020/197860005.Dockerfile/1/4
+['apt-get', 'install', '-y', 'git-core', 'build-essential', 'wget', 'NL']
+
+0.8476585149765015
+/debian-binnacle-icse2020/317003093.Dockerfile/2/6
+['automake', 'autoconf', 'NL']
+
+0.843158483505249
+/debian-binnacle-icse2020/291686643.Dockerfile/5/9
+['AND']
+
+0.834881067276001
+/debian-binnacle-icse2020/169187608.Dockerfile/8/0
+['RUN', 'dpkg-reconfigure', '-f', 'noninteractive', 'tzdata', 'NL']
+
+0.832207977771759
+/debian-binnacle-icse2020/284483852.Dockerfile/15/0
+['RUN', 'wget', 'http://curl.haxx.se/download/curl-7.45.0.tar.gz', 'NL']
+
+0.8321797251701355
+/debian-binnacle-icse2020/315935872.Dockerfile/1/4
+['apt-get', 'install', '-y', 'git-core', 'build-essential', 'wget', 'NL']
+
+0.8271331787109375
+/debian-binnacle-icse2020/477654243.Dockerfile/2/112
+['BACK', 'NL']
