@@ -19,22 +19,31 @@ GOLANG_PROJECT = "./golang/**"
 BINNACLE_PROJECT = "./binnacle-icse2020/**"
 DEBIAN_BINNACLE_PROJECT = "./debian-binnacle-icse2020/**"
 
+def tagging(file_path, layers):
+    res = {}
+    for hg, layer in enumerate(layers):
+        responses = Structure.toStack(layer)
+        for wd, response in enumerate(responses):
+            response = Structure.toToken(response)
+            response = Structure.Equal(response)
+            print("response:", response)
+            tag_name = "{}/{}/{}".format(file_path, str(hg), str(wd))[1:]
+            res[tag_name] = response
+        return res
+            
 
 def doc2vecs():
-    file_paths = [comp for comp in glob.glob(DEBIAN_BINNACLE_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
+    file_paths = [comp for comp in glob.glob(PYTHON_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
     data = []
     for file_path in file_paths[:100]:
-        
         primitive = Primitive(file_path)
-        print()
         data = primitive.data
         layers = Structure.toLayer(data, file_path)
-        for hg, layer in enumerate(layers):
-            print()
-            responses = Structure.toStack(layer)
-            for wd, response in enumerate(responses):
-                print(file_path, hg, wd, response)
+        tagged_data = tagging(file_path, layers)
+        # for key, value in tagged_data.items():
+        #     print(key ,value)
             
+
 
 def doc2vecs_test():
     hash_code = "8e7af6d92f0a007015d1fe88aab8f8b1570341a1bd2e50d1e315e34d44ac6bdd"
