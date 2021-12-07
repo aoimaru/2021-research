@@ -1,6 +1,7 @@
 import glob
 import os
 import hashlib
+import json
 
 from gensim.models import word2vec
 
@@ -59,18 +60,27 @@ def doc2vecs_test():
     
     comps = openJson()
 
-    code = toHash("/python/3.6/alpine3.14/Dockerfile/12/15")
+    code = toHash("/python/3.6/alpine3.14/Dockerfile/6/42")
     model = Doc2Vec.load("libs/D2Vs/new-2021-12-07 19:22:03.146937.model")
     sim_items = model.docvecs.doctags
     # sim_items = model.docvecs.similarity("dd5320931121b545c395d98dd14add71a446b3584e19768fdabadd9fa90ba85b", "6a64aec3301521f1d1492da8c05d830f5f16950c90de4264c6cf32a1a53dd909")
     sim_items = model.docvecs.most_similar(code)
+    print("===============================================================")
+    print(comps[code]["token"])
+    print("===============================================================")
     for sim_item in sim_items:
-        print(sim_item[0], sim_item[1])
+        print()
+        print(sim_item[1])
+
+
         print(comps[sim_item[0]]["location"])
         print(comps[sim_item[0]]["token"])
     
 
+
+
 def main():
+
 
 
 
