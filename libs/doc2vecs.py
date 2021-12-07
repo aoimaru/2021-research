@@ -6,9 +6,12 @@ import datetime
 
 class D2V():
     @staticmethod
-    def do(data, name="default"):
+    def do(training_data, name="default"):
+        def toHash(word):
+            hash_object = hashlib.sha256(word.encode()).hexdigest()
+            return hash_object
         current_time = str(datetime.datetime.now())
-        documents = [TaggedDocument(words=token, tags=[tag_name]) for tag_name, token in data.items()]
+        documents = [TaggedDocument(words=token, tags=[toHash(tag_name)]) for tag_name, token in training_data.items()]
         model = Doc2Vec(
             documents=documents, 
             min_count=1, 

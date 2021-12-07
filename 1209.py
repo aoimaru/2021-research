@@ -1,5 +1,7 @@
 import glob
 import os
+import hashlib
+
 from gensim.models import word2vec
 
 from libs.dockerfiles import Dockerfile
@@ -35,30 +37,42 @@ def tagging(file_path, layers):
 
 def doc2vecs():
     file_paths = [comp for comp in glob.glob(PYTHON_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
-    data = {}
+    training_data = {}
     for file_path in file_paths:
         primitive = Primitive(file_path)
         data = primitive.data
         layers = Structure.toLayer(data, file_path)
         tagged_data = tagging(file_path, layers)
-        data.update(tagged_data)
-    D2V.do(data, name="new")
-            
-
+        training_data.update(tagged_data)
+    D2V.do(training_data, name="new")
 
 def doc2vecs_test():
+    def toHash(word):
+        hash_object = hashlib.sha256(word.encode()).hexdigest()
+        return hash_object
     file_paths = [comp for comp in glob.glob(PYTHON_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
     for file_path in file_paths:
         print(file_path)
-    code = "/python/3.8/buster/Dockerfile/4/0"
-
-    model = Doc2Vec.load("libs/D2Vs/default-2021-12-06 15:14:57.995406.model")
-    # sim_items = model.most_similar("673a772d06993b90aade78bc4c5816e69056b75d5cbce3ed2ffb87720b011cd7")
-    # for sim_item in sim_items:
-    #     print(sim_item)
+    code = toHash("/python/3.6/alpine3.14/Dockerfile/12/15")
+    model = Doc2Vec.load("libs/D2Vs/new-2021-12-07 18:44:28.292220.model")
+    sim_items = model.docvecs.doctags
+    # sim_items = model.docvecs.similarity("dd5320931121b545c395d98dd14add71a446b3584e19768fdabadd9fa90ba85b", "6a64aec3301521f1d1492da8c05d830f5f16950c90de4264c6cf32a1a53dd909")
+    sim_items = model.docvecs.most_similar(code)
+    for sim_item in sim_items:
+        print(sim_item[0], sim_item[1])
+        
+    
 
 def main():
-    doc2vecs()
+
+
+
+
+
+
+    doc2vecs_test()
+
+
 
 if __name__ == "__main__":
     main()
