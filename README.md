@@ -110,5 +110,48 @@
         ["RUN", "find", "/usr/local", "-depth", "-type", "d", "-a", "-name", "test", "-o", "-name", "tests",,,],
         ["RUN", "find", "/usr/local", "-depth", "-type", "d", "-a", "-name", "*.pyc",,,,],
         ["RUN", "rm", "-rf", "get-pip.py"]
-        
+
+    ```
+
+### ファイルパスとレイヤ番号の情報を学習データに付与, Doc2Vecのタグとして利用
+* 後で記述
+- 付与例
+    ```bash
+        $FILE_PATH = "./debian-binnacle-icse2020/243133876.Dockerfile" の時
+
+        FROM debian:buster-slim
+        ENV PATH /usr/local/bin:$PATH
+        ENV LANG C.UTF-8
+        RUN set -eux; \
+            apt-get update; \
+            apt-get install -y --no-install-recommends \
+                ca-certificates \
+                netbase \
+                tzdata \
+            ; \
+            rm -rf /var/lib/apt/lists/*
+        ENV GPG_KEY E3FF2839C048B25C084DEBE9B26995E310250568
+        ENV PYTHON_VERSION 3.9.7
+
+    ```
+
+    ```python
+        {
+            Hash("./debian-binnacle-icse2020/243133876.Dockerfile/0/0"): 
+            [
+                "FROM",
+                "debian:buster-slim"
+            ],
+            ...
+            Hash("./debian-binnacle-icse2020/243133876.Dockerfile/3/3"):
+            [
+                "apt-get",
+                "install",
+                "-y",
+                "--no-install-recommends",
+                "ca-certificates",
+                "AND",
+                "BACK"
+            ] 
+        }
     ```
