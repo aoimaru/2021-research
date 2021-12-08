@@ -1,0 +1,43 @@
+===============================================================
+['RUN', 'apt-get', 'update', 'AND', 'apt-get', 'install', '-y', 'build-essential', 'AND', 'BACK', 'NL']
+===============================================================
+
+0.7632546424865723
+/debian-binnacle-icse2020/216424478.Dockerfile/6/6
+['apt-get', 'install', '-y', 'build-essential', 'BACK', 'NL']
+
+0.7274285554885864
+/debian-binnacle-icse2020/192476638.Dockerfile/2/4
+['apt-get', 'install', 'build-essential', '-y', 'AND', 'BACK', 'NL']
+
+0.7211893796920776
+/debian-binnacle-icse2020/362058256.Dockerfile/2/0
+['ENV', 'BUILD_DEPENDENCIES', '=', 'build-essential', 'BACK', 'NL']
+
+0.6995526552200317
+/debian-binnacle-icse2020/252784398.Dockerfile/2/8
+['apt-get', 'install', '-y', 'build-essential', 'AND', 'BACK', 'NL']
+
+0.6975823640823364
+/debian-binnacle-icse2020/457362092.Dockerfile/2/5
+['#', 'build-essential', 'BACK', 'NL']
+
+0.686796247959137
+/debian-binnacle-icse2020/238521108.Dockerfile/3/2
+['RUN', 'apt-get', 'update', 'AND', 'apt-get', 'install', '-y', '--no-install-recommends', 'BACK', 'NL', 'build-essential', 'BACK', 'NL']
+
+0.6796383857727051
+/debian-binnacle-icse2020/477265646.Dockerfile/5/4
+['apt-get', 'install', '-y', 'build-essential', 'cmake', 'zlib1g-dev', 'pkg-config', 'libssl-dev', 'AND', 'BACK', 'NL']
+
+0.6739634275436401
+/debian-binnacle-icse2020/252772374.Dockerfile/2/22
+['build-essential', 'BACK', 'NL']
+
+0.672956109046936
+/debian-binnacle-icse2020/224874785.Dockerfile/6/22
+['AND', 'apt-get', 'remove', '-y', 'build-essential', 'BACK', 'NL']
+
+0.6726301908493042
+/debian-binnacle-icse2020/291181654.Dockerfile/3/2
+['AND', 'curl', '--silent', '--show-error', '--location', '--fail', '--retry', '3', '--output', '/tmp/geckodriver_linux64.tar.gz', '$GECKODRIVER_LATEST_RELEASE_URL', 'BACK', 'NL']
