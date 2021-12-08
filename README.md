@@ -90,3 +90,18 @@
         ('gcc', 0.9584934711456299)
         ('dnf', 0.9575251340866089))
     ```
+
+### インデントを考慮した記述の変換
+* スタックを利用, インデントの構造をスタックに積んでいき, POPが行われるタイミングなどでオブジェクトのコピーを行う
+- 変換例
+    ```bash
+        RUN set -ex; \
+        \
+        find /usr/local -depth \
+            \( \
+                \( -type d -a \( -name test -o -name tests -o -name idle_test \) \) \
+                -o \
+                \( -type f -a \( -name '*.pyc' -o -name '*.pyo' \) \) \
+            \) -exec rm -rf '{}' +; \
+        rm -f get-pip.py
+    ```
