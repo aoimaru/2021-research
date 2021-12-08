@@ -45,7 +45,7 @@ def doc2vecs():
         layers = Structure.toLayer(data, file_path)
         tagged_data = tagging(file_path, layers)
         training_data.update(tagged_data)
-    D2V.do(training_data, name="DEBIAN_BINNACLE_PROJECT_DM_0")
+    D2V.do(training_data, name="DEBIAN_BINNACLE_PROJECT_DM_1")
 
 def doc2vecs_test():
     def toHash(word):
@@ -103,7 +103,7 @@ def main():
 
 
 
-    doc2vecs_test()
+    doc2vecs()
 
 
 

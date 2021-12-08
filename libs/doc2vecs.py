@@ -41,7 +41,7 @@ class D2V():
         model = Doc2Vec(
             documents=documents, 
             min_count=1, 
-            dm=0,
+            dm=1,
             window=5
         )
         model.save("./libs/D2Vs/{}-{}.model".format(name, current_time))
