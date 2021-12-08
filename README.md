@@ -15,7 +15,7 @@
 - Word2Vec学習モデルを生成
 - libs/word2vecs.py
 
-### Modelクラス
+### Dockerfileクラス
 - Dockerfileをナイーブに解析するオブジェクトを生成
 - libs/dockerfiles.py
 
