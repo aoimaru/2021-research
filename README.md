@@ -117,7 +117,7 @@
 * 後で記述
 - 付与例
     ```bash
-        $FILE_PATH = "./debian-binnacle-icse2020/243133876.Dockerfile" の時
+        $FILE_PATH = "./debian-binnacle-icse2020/243133876.Dockerfile"
 
         FROM debian:buster-slim
         ENV PATH /usr/local/bin:$PATH
