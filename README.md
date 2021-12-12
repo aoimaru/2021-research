@@ -105,7 +105,7 @@
                     -o \
                     \( -type f -a \( -name '*.pyc' -o -name '*.pyo' \) \) \
                 \) -exec rm -rf '{}' +; \
-        rm -f get-pip.py
+            rm -f get-pip.py
         
         ----------------------------変換後----------------------------
         ["COPY", "scripts/sccache.sh", "/scripts/"],
