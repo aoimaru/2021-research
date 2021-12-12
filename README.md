@@ -108,8 +108,8 @@
         rm -f get-pip.py
         
         ----------------------------変換後----------------------------
-        ["COPY", "scripts/sccache.sh", "/scripts/"]
-        ["RUN", "set", "-ex", "AND", "BACK"]
+        ["COPY", "scripts/sccache.sh", "/scripts/"],
+        ["RUN", "set", "-ex", "AND", "BACK"],
         ["RUN", "find", "/usr/local", "-depth"],
         ["RUN", "find", "/usr/local", "-depth", "-type", "d", "-a", "-name", "test", "-o", "-name", "tests",,,],
         ["RUN", "find", "/usr/local", "-depth", "-type", "d", "-a", "-name", "*.pyc",,,,],
