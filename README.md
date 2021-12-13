@@ -95,6 +95,8 @@
 * スタックを利用, インデントの構造をスタックに積んでいき, POPが行われるタイミングなどでオブジェクトのコピーを行う
 - 変換例
     ```bash
+        ----------------------------変換前----------------------------
+        COPY scripts/sccache.sh /scripts/
         RUN set -ex; \
             \
             find /usr/local -depth \
@@ -103,9 +105,11 @@
                     -o \
                     \( -type f -a \( -name '*.pyc' -o -name '*.pyo' \) \) \
                 \) -exec rm -rf '{}' +; \
-        rm -f get-pip.py
-
-        ["RUN", "set", "-ex", "AND", "BACK"]
+            rm -f get-pip.py
+        
+        ----------------------------変換後----------------------------
+        ["COPY", "scripts/sccache.sh", "/scripts/"],
+        ["RUN", "set", "-ex", "AND", "BACK"],
         ["RUN", "find", "/usr/local", "-depth"],
         ["RUN", "find", "/usr/local", "-depth", "-type", "d", "-a", "-name", "test", "-o", "-name", "tests",,,],
         ["RUN", "find", "/usr/local", "-depth", "-type", "d", "-a", "-name", "*.pyc",,,,],
