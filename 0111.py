@@ -276,9 +276,12 @@ def main():
     for file_path in file_paths:
         print(file_path)
         df = Dockerfile(file_path)
-        layers = df.layers
-        for layer in layers:
-            print(layer)
+        # layers = df.layers
+        # for layer in layers:
+        #     print(layer)
+        primitives = df.primitives
+        for primitive in primitives:
+            print(primitive)
     
 
 

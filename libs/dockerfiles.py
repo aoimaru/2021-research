@@ -8,6 +8,12 @@ URL_RE_PATTERN = "https?://[^/]+/"
 
 class Dockerfile(object):
     def __init__(self, file_path):
+        CHECKS = [
+            "TAB",
+            "QUATE",
+            "NEWLINE"
+        ]
+
         def tab(token):
             # print("token:", token)
             token = list(token)
@@ -242,7 +248,12 @@ class Dockerfile(object):
                 comps = to_shell(layer[1])
                 comps.insert(0, layer[0])
                 self._layers.append(comps)
-        
+
+        self._primitives = []
+        for layer in self._layers:
+            comp = [comp for comp in layer if not comp in CHECKS]
+            self._primitives.append(comp)
+
     @property
     def contents(self):
         return self._contents
@@ -250,6 +261,10 @@ class Dockerfile(object):
     @property
     def layers(self):
         return self._layers
+    
+    @property
+    def primitives(self):
+        return self._primitives
 
 class Dockerfile_sec(object):
     def __init__(self, file_path):
