@@ -21,6 +21,8 @@ FILEPATH = "./python/3.7/bullseye/slim/Dockerfile"
 FILEPATH2 = "./golang/1.16/alpine3.13/Dockerfile"
 
 PYTHON_PROJECT = "./python/**"
+GOLANG_PROJECT = "./golang/**"
+
 
 URL_RE_PATTERN = "https?://[^/]+/"
 
@@ -271,7 +273,7 @@ class Dockerfile2(object):
 
 
 def main():
-    file_paths = [comp for comp in glob.glob(PYTHON_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
+    file_paths = [comp for comp in glob.glob(GOLANG_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
     training_data = {}
     for file_path in file_paths:
         print(file_path)
