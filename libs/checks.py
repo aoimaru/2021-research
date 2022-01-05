@@ -4,7 +4,7 @@
 class Check(object):
     @staticmethod
     def execute_prim(path, name, contexts):
-        for context in contexts:
+        for hg, context in enumerate(contexts):
             inst = context.pop(0)
             print(inst)
 
@@ -19,8 +19,18 @@ class Check(object):
                         op = []
                     else:
                         op.append(token)
-                for op in ops:
-                    print(op)
+                commands = []
+                while ops:
+                    command = ops.pop(0)
+                    if command:
+                        command.insert(0, inst)
+                        commands.append(command)
+                for wd, command in enumerate(commands):
+                    print(hg, wd, command)
             else:
-                print(context)
+                context.insert(0, inst)
+                commands = [context]
+                for wd, command in enumerate(commands):
+                    print(hg, wd, command)
+
 
