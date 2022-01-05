@@ -82,14 +82,18 @@ def ubuntu_to_json():
             print("{}:{}".format(file_name, key), value)
         Check.save_json("./check/ubuntu/prim", file_name, data)
 
-def 
+def debian_doc2vecs():
+    PATH = "./debian/**"
+    file_paths = [comp for comp in glob.glob(PATH, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
+    for file_path in file_paths[:10]:
+        print(file_path)
 
 def main():
     # test()
     # subPython()
     # debian_binnacle_to_json()
     # ubuntu_to_json()
-    
+    debian_doc2vecs()
 
 
 
