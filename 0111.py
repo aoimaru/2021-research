@@ -33,8 +33,9 @@ OTHERS_PROJECT = "./Others/**"
 URL_RE_PATTERN = "https?://[^/]+/"
 
 BINNACLE_PROJECT = "./binnacle-icse2020/**"
+DEBIAN_BINNACLE_PROJECT = "./debian-binnacle-icse2020/**"
 
-def test():
+def binnacle_to_json():
     file_paths = [comp for comp in glob.glob(BINNACLE_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
     training_data = {}
     for file_path in file_paths:
@@ -52,13 +53,25 @@ def subPython():
         rnd = "".join(map(str, [random.randint(0, 9) for _ in range(9)]))
         file_name = Name.file_path_to_name(file_path)
         df = Dockerfile(file_path)
+        layers = df.layers
+        data = Check.execute_prim("file", file_path, layers)
+        Check.save_json("./check/python/tab", "{}.Dockerfile".format(rnd), data)
+    
+def debian_binnacle_to_json():
+    file_paths = [comp for comp in glob.glob(BINNACLE_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
+    training_data = {}
+    for file_path in file_paths:
+        df = Dockerfile(file_path)
         primitives = df.primitives
         data = Check.execute_prim("file", file_path, primitives)
-        Check.save_json("./check/python/prim", "{}.Dockerfile".format(rnd), data)
+        file_name = Name.file_path_to_name(file_path)
+        for key, value in data.items():
+            print("{}:{}".format(file_name, key), value)
+        Check.save_json("./check/BINNACLE/prim", file_name, data)
 
 def main():
     # test()
-    subPython()
+    # subPython()
     
 
 
