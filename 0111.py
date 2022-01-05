@@ -34,6 +34,7 @@ URL_RE_PATTERN = "https?://[^/]+/"
 
 BINNACLE_PROJECT = "./binnacle-icse2020/**"
 DEBIAN_BINNACLE_PROJECT = "./debian/**"
+UBUNTU_PROJECT = "./ubuntu/**"
 
 def binnacle_to_json():
     file_paths = [comp for comp in glob.glob(BINNACLE_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
@@ -69,10 +70,23 @@ def debian_binnacle_to_json():
             print("{}:{}".format(file_name, key), value)
         Check.save_json("./check/Debian/prim", file_name, data)
 
+def ubuntu_to_json():
+    file_paths = [comp for comp in glob.glob(UBUNTU_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
+    training_data = {}
+    for file_path in file_paths:
+        df = Dockerfile(file_path)
+        primitives = df.primitives
+        data = Check.execute_prim("file", file_path, primitives)
+        file_name = Name.file_path_to_name(file_path)
+        for key, value in data.items():
+            print("{}:{}".format(file_name, key), value)
+        Check.save_json("./check/ubuntu/prim", file_name, data)
+
 def main():
     # test()
     # subPython()
-    debian_binnacle_to_json()
+    # debian_binnacle_to_json()
+    ubuntu_to_json()
     
 
 
