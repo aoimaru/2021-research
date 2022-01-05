@@ -103,14 +103,26 @@ def debian_doc2vecs():
             tag_name = "{}:{}".format(rnd, key)
             res[tag_name] = value
             training_data.update(res)
-        D2V.do(training_data, name="Debian_DM_0")
+    D2V.do(training_data, name="Debian_DM_0_0")
+
+def debian_doc2vecs_test():
+    MODEL_PATH = "./libs/D2Vs/Debian_DM_0_0-2022-01-06 01:50:56.962337.model"
+    model = Doc2Vec.load(MODEL_PATH)
+    sim_items = model.docvecs.most_similar("345375470:2:0")
+    for sim_item in sim_items:
+        print(sim_item)
+        name, fst, sec = sim_item[0].split(":")
+        file_path = "{}/{}.json".format("./check/Debian/prim", name)
+        comps = open_json(file_path)
+        tag_name = "{}:{}".format(fst, sec)
+        print(comps[tag_name])
 
 def main():
     # test()
     # subPython()
     # debian_binnacle_to_json()
     # ubuntu_to_json()
-    debian_doc2vecs()
+    debian_doc2vecs_test()
 
 
 
