@@ -11,6 +11,20 @@ JSON_FILE_PATH = "./libs/JSON/"
 class D2V():
     @staticmethod
     def do(training_data, name="default"):
+        documents = [TaggedDocument(words=token, tags=[tag_name]) for tag_name, token in training_data.items()]
+        for document in documents:
+            print(document)
+        current_time = str(datetime.datetime.now())
+        model = Doc2Vec(
+            documents=documents, 
+            min_count=1, 
+            dm=0,
+            window=5
+        )
+        model.save("./libs/D2Vs/{}-{}.model".format(name, current_time))
+        
+    @staticmethod
+    def do2(training_data, name="default"):
         def toHash(word):
             hash_object = hashlib.sha256(word.encode()).hexdigest()
             return hash_object

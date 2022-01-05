@@ -93,7 +93,7 @@ def debian_doc2vecs():
     training_data = {}
     DPATH = "./check/Debian/prim/**"
     file_paths = [comp for comp in glob.glob(DPATH, recursive=True) if os.path.isfile(comp) if comp.endswith(".json")]
-    for file_path in file_paths[:10]:
+    for file_path in file_paths:
         print(file_path)
         file_name = Name.file_path_to_name(file_path)
         rnd = re.sub(".json", "", file_name)
