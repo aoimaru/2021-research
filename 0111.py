@@ -82,11 +82,13 @@ def ubuntu_to_json():
             print("{}:{}".format(file_name, key), value)
         Check.save_json("./check/ubuntu/prim", file_name, data)
 
+def 
+
 def main():
     # test()
     # subPython()
     # debian_binnacle_to_json()
-    ubuntu_to_json()
+    # ubuntu_to_json()
     
 
 
