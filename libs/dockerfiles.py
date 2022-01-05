@@ -252,11 +252,24 @@ class Dockerfile(object):
         self._primitives = []
         for layer in self._layers:
             comp = [comp for comp in layer if not comp in CHECKS]
-            self._primitives.append(comp)
+            data = []
+            while comp:
+                com = comp.pop(0)
+                if com.startswith('"'):
+                    com = com[1:]
+                if com.startswith('"'):
+                    com = com[1:]
+                if com.endswith("'"):
+                    com = com[:-1]
+                if com.endswith('"'):
+                    com = com[:-1]
+                data.append(com)
+            self._primitives.append(data)
 
     @property
     def contents(self):
-        return self._contents
+        return self._co
+        ntents
     
     @property
     def layers(self):

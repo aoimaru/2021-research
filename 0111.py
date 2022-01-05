@@ -2,6 +2,7 @@ import glob
 import os
 import hashlib
 import json
+import re
 
 from gensim.models import word2vec
 
@@ -17,6 +18,7 @@ from gensim.models.doc2vec import Doc2Vec
 from gensim.models.doc2vec import TaggedDocument
 
 from libs.checks import Check
+from libs.names import Name
  
 
 FILEPATH = "./python/3.7/bullseye/slim/Dockerfile"
@@ -278,17 +280,15 @@ def main():
     file_paths = [comp for comp in glob.glob(OTHERS_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
     training_data = {}
     for file_path in file_paths:
-        print(file_path)
         df = Dockerfile(file_path)
-        layers = df.layers
-        # for layer in layers:
-        #     print(layer)
         primitives = df.primitives
-        # for primitive in primitives:
-        #     print(primitive)
-        Check.execute_prim("file", file_path, primitives)
+        data = Check.execute_prim("file", file_path, primitives)
+        file_name = Name.file_path_to_name(file_path)
+        for key, value in data.items():
+            print("{}:{}".format(file_name, key), value)
 
     
+
 
 
 
