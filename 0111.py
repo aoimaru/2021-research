@@ -16,6 +16,8 @@ from libs.word2vecs import W2V
 from gensim.models.doc2vec import Doc2Vec
 from gensim.models.doc2vec import TaggedDocument
 
+from libs.checks import Check
+ 
 
 FILEPATH = "./python/3.7/bullseye/slim/Dockerfile"
 FILEPATH2 = "./golang/1.16/alpine3.13/Dockerfile"
@@ -278,12 +280,14 @@ def main():
     for file_path in file_paths:
         print(file_path)
         df = Dockerfile(file_path)
-        # layers = df.layers
+        layers = df.layers
         # for layer in layers:
         #     print(layer)
         primitives = df.primitives
-        for primitive in primitives:
-            print(primitive)
+        # for primitive in primitives:
+        #     print(primitive)
+        Check.execute_prim("file", file_path, primitives)
+
     
 
 
