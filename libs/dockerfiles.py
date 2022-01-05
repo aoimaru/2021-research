@@ -237,17 +237,25 @@ class Dockerfile(object):
             self._comped.append(layers)
         for layer in self._comped:
             if layer[0] == "RUN":
-                comps = to_shell(layer[1])
-                comps.insert(0, "RUN")
-                coom = copy.copy(comps)
-                self._layers.append(coom)
-                words = chain(comps)
+                try:
+                    comps = to_shell(layer[1])
+                except:
+                    pass
+                else:
+                    comps.insert(0, "RUN")
+                    coom = copy.copy(comps)
+                    self._layers.append(coom)
+                    words = chain(comps)
                 # for word in words:
                 #     print(word)
             else:
-                comps = to_shell(layer[1])
-                comps.insert(0, layer[0])
-                self._layers.append(comps)
+                try:
+                    comps = to_shell(layer[1])
+                except:
+                    pass
+                else:
+                    comps.insert(0, layer[0])
+                    self._layers.append(comps)
 
         self._primitives = []
         for layer in self._layers:
