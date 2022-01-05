@@ -72,6 +72,7 @@ def debian_binnacle_to_json():
 def main():
     # test()
     # subPython()
+    debian_binnacle_to_json()
     
 
 
