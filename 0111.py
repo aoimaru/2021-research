@@ -31,6 +31,7 @@ OTHERS_PROJECT = "./Others/**"
 URL_RE_PATTERN = "https?://[^/]+/"
 
 class Dockerfile2(object):
+
     def __init__(self, file_path):
         def tab(token):
             # print("token:", token)
@@ -275,9 +276,10 @@ class Dockerfile2(object):
     def layers(self):
         return self._layers
 
+BINNACLE_PROJECT = "./binnacle-icse2020/**"
 
-def main():
-    file_paths = [comp for comp in glob.glob(OTHERS_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
+def test():
+    file_paths = [comp for comp in glob.glob(BINNACLE_PROJECT, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
     training_data = {}
     for file_path in file_paths:
         df = Dockerfile(file_path)
@@ -286,7 +288,10 @@ def main():
         file_name = Name.file_path_to_name(file_path)
         for key, value in data.items():
             print("{}:{}".format(file_name, key), value)
+        Check.save_json("./check/BINNACLE/prim", file_name, data)
 
+def main():
+    test()
     
 
 

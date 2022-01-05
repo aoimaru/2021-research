@@ -1,5 +1,5 @@
 
-
+import json
 
 class Check(object):
     @staticmethod
@@ -38,4 +38,6 @@ class Check(object):
     @staticmethod
     def save_json(file_path, file_name, data):
         path = "{}/{}.json".format(file_path, file_name)
+        with open(path, mode="w") as f:
+            json.dump(data, f, indent=4)
 
