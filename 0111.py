@@ -82,11 +82,28 @@ def ubuntu_to_json():
             print("{}:{}".format(file_name, key), value)
         Check.save_json("./check/ubuntu/prim", file_name, data)
 
+def open_json(file_path):
+    with open(file_path, mode="r") as f:
+        comps = json.load(f)
+    return comps
+
+
+
 def debian_doc2vecs():
-    PATH = "./debian/**"
-    file_paths = [comp for comp in glob.glob(PATH, recursive=True) if os.path.isfile(comp) if comp.endswith("Dockerfile")]
+    training_data = {}
+    DPATH = "./check/Debian/prim/**"
+    file_paths = [comp for comp in glob.glob(DPATH, recursive=True) if os.path.isfile(comp) if comp.endswith(".json")]
     for file_path in file_paths[:10]:
         print(file_path)
+        file_name = Name.file_path_to_name(file_path)
+        rnd = re.sub(".json", "", file_name)
+        comps = open_json(file_path)
+        for key, value in comps.items():
+            res = {}
+            tag_name = "{}:{}".format(rnd, key)
+            res[tag_name] = value
+            training_data.update(res)
+        D2V.do(training_data, name="Debian_DM_0")
 
 def main():
     # test()
