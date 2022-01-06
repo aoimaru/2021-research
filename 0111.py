@@ -108,8 +108,16 @@ def debian_doc2vecs():
 def debian_doc2vecs_test():
     MODEL_PATH = "./libs/D2Vs/Debian_DM_0_0-2022-01-06 01:50:56.962337.model"
     model = Doc2Vec.load(MODEL_PATH)
-    sim_items = model.docvecs.most_similar("345375470:2:0")
+    key_name = "294394255:8:6"
+    name, fst, sec = key_name.split(":")
+    sim_items = model.docvecs.most_similar(key_name)
+    file_path = "{}/{}.json".format("./check/Debian/prim", name)
+    comps = open_json(file_path)
+    tag_name = "{}:{}".format(fst, sec)
+    print(comps[tag_name])
+    print()
     for sim_item in sim_items:
+        print()
         print(sim_item)
         name, fst, sec = sim_item[0].split(":")
         file_path = "{}/{}.json".format("./check/Debian/prim", name)
@@ -117,12 +125,105 @@ def debian_doc2vecs_test():
         tag_name = "{}:{}".format(fst, sec)
         print(comps[tag_name])
 
+def debian_doc2vecs_run():
+    training_data = {}
+    DPATH = "./check/Debian/prim/**"
+    file_paths = [comp for comp in glob.glob(DPATH, recursive=True) if os.path.isfile(comp) if comp.endswith(".json")]
+    for file_path in file_paths:
+        print(file_path)
+        file_name = Name.file_path_to_name(file_path)
+        rnd = re.sub(".json", "", file_name)
+        comps = open_json(file_path)
+        for key, value in comps.items():
+            res = {}
+            tag_name = "{}:{}".format(rnd, key)
+            if value[0] == "RUN":
+                res[tag_name] = value
+                training_data.update(res)
+    D2V.do(training_data, name="Debian_DM_run_0_0_")
+
+def debian_doc2vecs_run_test():
+    MODEL_PATH = "./libs/D2Vs/Debian_DM_run_0_0_-2022-01-06 02:16:11.772078.model"
+    model = Doc2Vec.load(MODEL_PATH)
+    key_name = "345360222:4:2"
+    name, fst, sec = key_name.split(":")
+    sim_items = model.docvecs.most_similar(key_name)
+    file_path = "{}/{}.json".format("./check/Debian/prim", name)
+    comps = open_json(file_path)
+    tag_name = "{}:{}".format(fst, sec)
+    print(comps[tag_name])
+    print()
+    for sim_item in sim_items:
+        print()
+        print(sim_item)
+        name, fst, sec = sim_item[0].split(":")
+        file_path = "{}/{}.json".format("./check/Debian/prim", name)
+        comps = open_json(file_path)
+        tag_name = "{}:{}".format(fst, sec)
+        print(comps[tag_name])
+
+
+
+def ubuntu_doc2vecs():
+    training_data = {}
+    DPATH = "./check/Ubuntu/prim/**"
+    file_paths = [comp for comp in glob.glob(DPATH, recursive=True) if os.path.isfile(comp) if comp.endswith(".json")]
+    for file_path in file_paths:
+        print(file_path)
+        file_name = Name.file_path_to_name(file_path)
+        rnd = re.sub(".json", "", file_name)
+        comps = open_json(file_path)
+        for key, value in comps.items():
+            res = {}
+            tag_name = "{}:{}".format(rnd, key)
+            res[tag_name] = value
+            training_data.update(res)
+    D2V.do(training_data, name="Ubuntu_DM_0_0")
+
+def debian_doc2vecs_test():
+    MODEL_PATH = "./libs/D2Vs/Debian_DM_0_0-2022-01-06 01:50:56.962337.model"
+    model = Doc2Vec.load(MODEL_PATH)
+    key_name = "294394255:8:6"
+    name, fst, sec = key_name.split(":")
+    sim_items = model.docvecs.most_similar(key_name)
+    file_path = "{}/{}.json".format("./check/Debian/prim", name)
+    comps = open_json(file_path)
+    tag_name = "{}:{}".format(fst, sec)
+    print(comps[tag_name])
+    print()
+    for sim_item in sim_items:
+        print()
+        print(sim_item)
+        name, fst, sec = sim_item[0].split(":")
+        file_path = "{}/{}.json".format("./check/Debian/prim", name)
+        comps = open_json(file_path)
+        tag_name = "{}:{}".format(fst, sec)
+        print(comps[tag_name])
+
+def ubuntu_run_doc2vec():
+    training_data = {}
+    DPATH = "./check/Ubuntu/prim/**"
+    file_paths = [comp for comp in glob.glob(DPATH, recursive=True) if os.path.isfile(comp) if comp.endswith(".json")]
+    for file_path in file_paths:
+        print(file_path)
+        file_name = Name.file_path_to_name(file_path)
+        rnd = re.sub(".json", "", file_name)
+        comps = open_json(file_path)
+        for key, value in comps.items():
+            res = {}
+            tag_name = "{}:{}".format(rnd, key)
+            res[tag_name] = value
+            training_data.update(res)
+    D2V.do(training_data, name="Ubuntu_run_DM_0_0")
+
+
 def main():
     # test()
     # subPython()
     # debian_binnacle_to_json()
     # ubuntu_to_json()
-    debian_doc2vecs_test()
+    # debian_doc2vecs_test()
+    # ubuntu_doc2vecs()
 
 
 
