@@ -10,7 +10,21 @@ JSON_FILE_PATH = "./libs/JSON/"
 
 class D2V():
     @staticmethod
-    def do(training_data, name="default"):
+    def do(training_data, name="default", distribution="default", types="default", dm=0, window=5, min_count=5):
+        documents = [TaggedDocument(words=token, tags=[tag_name]) for tag_name, token in training_data.items()]
+        for document in documents:
+            print(document)
+        current_time = str(datetime.datetime.now())
+        model = Doc2Vec(
+            documents=documents, 
+            min_count=min_count, 
+            dm=dm,
+            window=window
+        )
+        model.save("./libs/Models/{}/{}/{}-{}.model".format(distribution, types, name, current_time))
+
+    @staticmethod
+    def do_sub(training_data, name="default"):
         documents = [TaggedDocument(words=token, tags=[tag_name]) for tag_name, token in training_data.items()]
         for document in documents:
             print(document)

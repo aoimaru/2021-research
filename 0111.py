@@ -18,7 +18,9 @@ from gensim.models.doc2vec import Doc2Vec
 from gensim.models.doc2vec import TaggedDocument
 
 from libs.checks import Check
-from libs.names import Name
+from libs.names import Name, Rnd
+from libs.paths import Path
+from libs.trs import TR
 
 import random
  
@@ -207,15 +209,22 @@ def ubuntu_run_doc2vec():
     for file_path in file_paths:
         print(file_path)
         file_name = Name.file_path_to_name(file_path)
-        rnd = re.sub(".json", "", file_name)
+        rnd = Rnd.get(file_name)
         comps = open_json(file_path)
         for key, value in comps.items():
             res = {}
             tag_name = "{}:{}".format(rnd, key)
             res[tag_name] = value
             training_data.update(res)
-    D2V.do(training_data, name="Ubuntu_run_DM_0_0")
+    D2V.do(training_data, name="Ubuntu_run_DM_0", model_path="default", dm=0, window=5, min_count=1)
 
+def check():
+    file_paths = Path.get_file_path("./check/Ubuntu/prim")
+    training_data = TR.runs(file_paths)
+    for key, value in training_data.items():
+        print(key, value)
+    D2V.do(training_data, name="DM_0", distribution="ubuntu" types="runs", dm=0, window=5, min_count=1)
+        
 
 def main():
     # test()
@@ -224,6 +233,7 @@ def main():
     # ubuntu_to_json()
     # debian_doc2vecs_test()
     # ubuntu_doc2vecs()
+    check()
 
 
 
