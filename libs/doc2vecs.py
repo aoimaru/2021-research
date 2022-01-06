@@ -21,7 +21,7 @@ class D2V():
             dm=dm,
             window=window
         )
-        model.save("./libs/Models/{}/{}/{}-{}.model".format(distribution, types, name, current_time))
+        model.save("./libs/Models/{}/{}/{}/{}-{}.model".format(distribution, types, dm, name, current_time))
 
     @staticmethod
     def do_sub(training_data, name="default"):
