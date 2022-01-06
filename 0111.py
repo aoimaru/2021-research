@@ -223,12 +223,12 @@ def check():
     training_data = TR.runs(file_paths)
     for key, value in training_data.items():
         print(key, value)
-    D2V.do(training_data, name="DM_1", distribution="ubuntu", types="runs", dm=1, window=5, min_count=1)
+    D2V.do(training_data, name="DM_0", distribution="ubuntu", types="runs", dm=0, window=5, min_count=1)
         
 def check_test():
-    MODEL_PATH = "./libs/Models/ubuntu/runs/DM_0-2022-01-06 19:28:51.165900.model"
+    MODEL_PATH = "./libs/Models/ubuntu/runs/DM0/DM_0-2022-01-06 19:47:53.866559.model"
     model = Doc2Vec.load(MODEL_PATH)
-    key_name = "345371599:3:3"
+    key_name = "146910404:3:0"
     name, fst, sec = key_name.split(":")
     sim_items = model.docvecs.most_similar(key_name)
     file_path = "{}/{}.json".format("./check/Ubuntu/prim", name)
@@ -254,7 +254,7 @@ def main():
     # ubuntu_to_json()
     # debian_doc2vecs_test()
     # ubuntu_doc2vecs()
-    check()
+    check_test()
 
 
 

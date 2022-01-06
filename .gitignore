@@ -137,3 +137,5 @@ dmypy.json
 /check
 /ubuntu
 /debian
+
+.npy
