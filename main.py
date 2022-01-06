@@ -38,6 +38,12 @@ BINNACLE_PROJECT = "./binnacle-icse2020/**"
 DEBIAN_BINNACLE_PROJECT = "./debian/**"
 UBUNTU_PROJECT = "./ubuntu/**"
 
+def open_json(file_path):
+    with open(file_path, mode="r") as f:
+        comps = json.load(f)
+    return comps
+
+
 def check():
     file_paths = Path.get_file_path("./check/Ubuntu/prim")
     training_data = TR.runs(file_paths)
@@ -48,8 +54,10 @@ def check():
 def check_test():
     MODEL_PATH = "./libs/Models/ubuntu/runs/DM1/DM_1-2022-01-06 19:40:59.389739.model"
     model = Doc2Vec.load(MODEL_PATH)
+    # 
     key_name = "146910404:3:0"
-    key_name = "146910404:3:2"
+    # key_name = "146910404:3:2"
+    # key_name = "345371063:3:4"
     name, fst, sec = key_name.split(":")
     sim_items = model.docvecs.most_similar(key_name)
     file_path = "{}/{}.json".format("./check/Ubuntu/prim", name)
