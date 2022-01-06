@@ -21,7 +21,11 @@ class D2V():
             dm=dm,
             window=window
         )
-        model.save("./libs/Models/{}/{}/{}/{}-{}.model".format(distribution, types, dm, name, current_time))
+        if dm == 0:
+            DM = "DM0"
+        else:
+            DM = "DM1"
+        model.save("./libs/Models/{}/{}/{}/{}-{}.model".format(distribution, types, DM, name, current_time))
 
     @staticmethod
     def do_sub(training_data, name="default"):
