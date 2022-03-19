@@ -1,6 +1,10 @@
 
 
+PYTHON_PROJECT = "./python/**"
+
 def test():
+    pass
+
     
 
 
