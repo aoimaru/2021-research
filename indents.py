@@ -1,9 +1,11 @@
 
-
-PYTHON_PROJECT = "./python/**"
+from libs.configs.envs import (
+    ENV, 
+    PYTHON_PROJECT
+)
 
 def test():
-    pass
+    print(PYTHON_PROJECT)
 
     
 
