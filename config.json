@@ -1,0 +1,14 @@
+{
+ "Examples": {
+  "Detail": "add studentid",
+  "Ids": [
+   "2600*******",
+   "2600*******",
+   "2600*******"
+  ]
+ },
+ "StudentsIds": {
+  "Detail": "add studentid",
+  "Ids": []
+ }
+}
