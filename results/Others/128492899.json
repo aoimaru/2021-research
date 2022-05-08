@@ -1,0 +1,50 @@
+{
+ "Results": [
+  {
+   "Res": [
+    "RUN",
+    "addgroup",
+    "-S",
+    "tool",
+    "",
+    "AND",
+    "",
+    "AND",
+    "",
+    "adduser",
+    "-S",
+    "-G",
+    "tool",
+    "tool",
+    "",
+    "AND",
+    "",
+    "AND",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "mkdir",
+    "-p",
+    "/opt/mount/"
+   ]
+  },
+  {
+   "Res": [
+    "RUN",
+    "composer",
+    "global",
+    "require",
+    "pheromone/phpcs-security-audit"
+   ]
+  },
+  {
+   "Res": [
+    "RUN",
+    "sh",
+    "./vendor/pheromone/phpcs-security-audit/symlink.sh"
+   ]
+  }
+ ]
+}

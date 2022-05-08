@@ -1,0 +1,65 @@
+{
+ "Results": [
+  {
+   "Res": [
+    "RUN",
+    "mkdir",
+    "-p",
+    "",
+    "DULL",
+    "GOPATH/src/github.com/hpcloud/tail/"
+   ]
+  },
+  {
+   "Res": [
+    "RUN",
+    "go",
+    "get",
+    "-v",
+    "github.com/hpcloud/tail"
+   ]
+  },
+  {
+   "Res": [
+    "RUN",
+    "go",
+    "test",
+    "-v",
+    "github.com/hpcloud/tail"
+   ]
+  },
+  {
+   "Res": [
+    "RUN",
+    "go",
+    "install",
+    "-v",
+    "github.com/hpcloud/tail"
+   ]
+  },
+  {
+   "Res": [
+    "RUN",
+    "go",
+    "install",
+    "-v",
+    "github.com/hpcloud/tail/cmd/gotail"
+   ]
+  },
+  {
+   "Res": [
+    "RUN",
+    "",
+    "DULL",
+    "GOPATH/bin/gotail",
+    "-h",
+    "",
+    "PIPE",
+    "",
+    "PIPE",
+    "",
+    "true"
+   ]
+  }
+ ]
+}

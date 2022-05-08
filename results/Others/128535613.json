@@ -1,0 +1,38 @@
+{
+ "Results": [
+  {
+   "Res": [
+    "RUN",
+    "sh",
+    "/scripts/android-base-apt-get.sh"
+   ]
+  },
+  {
+   "Res": [
+    "RUN",
+    ".",
+    "/scripts/android-ndk.sh",
+    "",
+    "AND",
+    "",
+    "AND",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "download_and_make_toolchain",
+    "android-ndk-r15c-linux-x86_64.zip",
+    "arm64",
+    "21"
+   ]
+  },
+  {
+   "Res": [
+    "RUN",
+    "sh",
+    "/scripts/sccache.sh"
+   ]
+  }
+ ]
+}

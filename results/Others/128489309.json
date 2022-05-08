@@ -1,0 +1,57 @@
+{
+ "Results": [
+  {
+   "Res": [
+    "RUN",
+    "set",
+    "-ex",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "AND",
+    "",
+    "AND",
+    "",
+    "apk",
+    "add",
+    "--no-cache",
+    "make",
+    "git",
+    "file"
+   ]
+  },
+  {
+   "Res": [
+    "RUN",
+    "CGO_ENABLED",
+    "EQUAL",
+    "0",
+    "make",
+    "PREFIX",
+    "EQUAL",
+    "/go",
+    "clean",
+    "binaries",
+    "",
+    "AND",
+    "",
+    "AND",
+    "",
+    "file",
+    "./bin/registry",
+    "",
+    "PIPE",
+    "",
+    "grep",
+    "",
+    "DOUBLE_QUATE",
+    "statically",
+    "linked",
+    "DOUBLE_QUATE",
+    ""
+   ]
+  }
+ ]
+}

@@ -1,0 +1,31 @@
+{
+ "Results": [
+  {
+   "Res": [
+    "RUN",
+    "sh",
+    "/scripts/cross-apt-packages.sh"
+   ]
+  },
+  {
+   "Res": [
+    "RUN",
+    "sh",
+    "/scripts/crosstool-ng.sh"
+   ]
+  },
+  {
+   "Res": [
+    "RUN",
+    "./install-x86_64-redox.sh"
+   ]
+  },
+  {
+   "Res": [
+    "RUN",
+    "sh",
+    "/scripts/sccache.sh"
+   ]
+  }
+ ]
+}
